@@ -5,7 +5,7 @@
 	"identifier": "fr.requet.liftly",
 	"build": {
 		"frontendDist": "../build",
-    	"devUrl": "http://localhost:1420",
+		"devUrl": "http://localhost:1420",
 		"beforeDevCommand": "pnpm dev",
 		"beforeBuildCommand": "pnpm build"
 	},
