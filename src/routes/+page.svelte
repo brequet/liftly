@@ -1,13 +1,17 @@
 <script lang="ts">
+	import { commands, type MyResponse } from '$lib/bindings';
 	import { Button } from '$lib/components/ui/button';
-	import type { HelloResponse } from '$lib/taurpc';
-	import taurpc from '$lib/taurpc';
 
 	let clickCount = $state(0);
 
-	let response: HelloResponse | undefined = $state(undefined);
+	let response: MyResponse | undefined = $state(undefined);
 	async function callHello(): Promise<void> {
-		response = await taurpc.hello({ name: `World-${clickCount}` });
+		const res = await commands.anotherCommand({a: `World-${clickCount}`});
+		if (res.status === "ok") {
+			response = res.data;
+		} else {
+			response = { message: `Error: ${res.error}` };
+		}
 	}
 </script>
 
@@ -15,7 +19,16 @@
 <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
 
 <Button onclick={() => (clickCount += 1)}>Click me</Button>
-<p>Button clicked {clickCount} times</p>
+<p class="font-bold bg-red-500">Button clicked {clickCount} times</p>
 
-<Button onclick={callHello}>Call Hello</Button>
-<p>{response?.message}</p>
+<Button onclick={callHello} class="my-4">Call Hello</Button>
+<p class="bg-red-500 custom-p">{response?.message}</p>
+{#if response}
+	<p class="bg-destructive text-blue-500 p-2 rounded-md">{response.message}</p>
+{/if}
+
+<style>
+	.custom-p {
+		color: oklch(37.446% 0.13301 270.507);
+	}
+</style>

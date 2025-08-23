@@ -1,18 +1,23 @@
 [package]
-name = "svelte-tauri-template"
+name = "liftly"
 version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
+description = "Liftly App"
+authors = ["brequet"]
 license = ""
 repository = ""
 edition = "2021"
 rust-version = "1.77.2"
+default-run = "liftly"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [lib]
 name = "app_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "export-bindings"
+path = "src/bin/export_bindings.rs"
 
 [build-dependencies]
 tauri-build = { version = "2.3.1", features = [] }
@@ -23,6 +28,6 @@ serde = { version = "1.0", features = ["derive"] }
 log = "0.4"
 tauri = { version = "2.7.0", features = [] }
 tauri-plugin-log = "2"
-taurpc = "0.5.1"
 specta = "=2.0.0-rc.22"
-tokio = { version = "1.47.1", features = ["full"] }
+tauri-specta = { version = "=2.0.0-rc.21", features = ["derive", "typescript"] }
+specta-typescript = "0.0.9"

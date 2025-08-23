@@ -1,9 +1,9 @@
-use api::{Api, ApiImpl};
-
-mod api;
+mod commands;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+    let builder = commands::specta_builder();
+
     tauri::Builder::default()
         .setup(|app| {
             if cfg!(debug_assertions) {
@@ -13,9 +13,10 @@ pub fn run() {
                         .build(),
                 )?;
             }
+            // builder.mount_events(app); TODO for events
             Ok(())
         })
-        .invoke_handler(taurpc::create_ipc_handler(ApiImpl.into_handler()))
+        .invoke_handler(builder.invoke_handler())
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

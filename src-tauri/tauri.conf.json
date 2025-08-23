@@ -1,18 +1,18 @@
 {
 	"$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-	"productName": "svelte-tauri-template",
+	"productName": "liftly",
 	"version": "0.1.0",
-	"identifier": "fr.requet.svelte-tauri-template",
+	"identifier": "fr.requet.liftly",
 	"build": {
 		"frontendDist": "../build",
-		"devUrl": "http://localhost:5173",
+    	"devUrl": "http://localhost:1420",
 		"beforeDevCommand": "pnpm dev",
 		"beforeBuildCommand": "pnpm build"
 	},
 	"app": {
 		"windows": [
 			{
-				"title": "svelte-tauri-template",
+				"title": "liftly",
 				"width": 800,
 				"height": 600,
 				"resizable": true,
