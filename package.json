@@ -13,7 +13,8 @@
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"tauri": "tauri",
-		"export-bindings": "cargo run --bin export-bindings --manifest-path ./src-tauri/Cargo.toml"
+		"export-bindings": "cargo run --bin export-bindings --manifest-path ./src-tauri/Cargo.toml",
+		"android:clear-pkg": "adb shell pm clear fr.requet.liftly"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
@@ -26,6 +27,7 @@
 		"@tauri-apps/api": "^2.8.0",
 		"@tauri-apps/cli": "^2.7.1",
 		"@tauri-apps/plugin-opener": "^2.5.0",
+		"@tauri-apps/plugin-sql": "^2.3.0",
 		"clsx": "^2.1.1",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",

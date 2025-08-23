@@ -15,7 +15,8 @@ fn get_all_commands() -> Commands<tauri::Wry> {
     combine_commands!(
         api1: [
             hello_world,
-            goodbye_world
+            goodbye_world,
+            get_db_tables
         ],
         api2: [
             another_command,
