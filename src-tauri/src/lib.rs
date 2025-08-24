@@ -25,6 +25,9 @@ pub fn run() {
         )
         .setup(|app| {
             let pool = tauri::async_runtime::block_on(db::connection::init_db_pool(app.handle()))?;
+
+            tauri::async_runtime::block_on(db::seed::seed_exercises_if_needed(&pool.0))?;
+
             app.manage(pool);
             // builder.mount_events(app); //TODO for events
             Ok(())

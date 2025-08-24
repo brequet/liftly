@@ -4,7 +4,7 @@ pub fn get_migrations() -> Vec<Migration> {
     vec![Migration {
         version: 1,
         description: "init",
-        sql: include_str!("./resources/0001_init.sql"),
+        sql: include_str!("./resources/sql/0001_init.sql"),
         kind: MigrationKind::Up,
     }]
 }
