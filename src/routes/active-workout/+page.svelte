@@ -1,34 +1,31 @@
 <script>
+	import { goto } from '$app/navigation';
 	import PageWrapper from '$lib/components/layout/page-wrapper.svelte';
 	import { Button } from '$lib/components/ui/button';
-	import { formatElapsedTime } from '$lib/services/datetime';
+	import { workoutService } from '$lib/services/workout.service.svelte';
 	import { ArrowLeft, CircleCheckBig } from '@lucide/svelte';
-	import { onMount } from 'svelte';
 
-	let startDateTime = new Date();
-	let elapsedTime = $state(formatElapsedTime(startDateTime, startDateTime));
+	function goBackToHome() {
+		goto('/main/home', { replaceState: true });
+	}
 
-	onMount(() => {
-		const interval = setInterval(() => {
-			elapsedTime = formatElapsedTime(startDateTime, new Date());
-		}, 1000);
-
-		return () => clearInterval(interval);
-	});
+	function endWorkout() {
+		workoutService.endWorkout();
+	}
 </script>
 
 <header class="flex w-full flex-row items-center border-b p-2">
-	<a href="/main/home" class="flex h-auto flex-col items-center text-sm">
-		<Button variant="ghost" size="icon">
-			<ArrowLeft class="size-6" />
-		</Button>
-	</a>
+	<Button variant="ghost" size="icon" onclick={goBackToHome}>
+		<ArrowLeft class="size-6" />
+	</Button>
 	<div class="flex flex-1 justify-center">
-		<p class="flex items-center">{elapsedTime}</p>
+		<p class="flex items-center">{workoutService.elapsedTime}</p>
 	</div>
-	<Button variant="ghost" size="icon">
+	<Button variant="ghost" size="icon" onclick={endWorkout}>
 		<CircleCheckBig class="size-6" />
 	</Button>
 </header>
 
-<PageWrapper>salut</PageWrapper>
+<PageWrapper>
+	<pre class="bg-blue-50">{JSON.stringify(workoutService.activeWorkout)}</pre>
+</PageWrapper>

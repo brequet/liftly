@@ -2,6 +2,9 @@ use tauri_specta::{collect_commands, Builder, Commands};
 
 mod api1;
 mod api2;
+mod workout;
+
+mod error;
 
 macro_rules! combine_commands {
     ( $( $module:ident : [ $( $command:ident ),* ] ),* ) => {
@@ -21,6 +24,11 @@ fn get_all_commands() -> Commands<tauri::Wry> {
         api2: [
             another_command,
             print_log
+        ],
+        workout: [
+            get_active_workout,
+            create_workout,
+            end_workout
         ]
     )
 }

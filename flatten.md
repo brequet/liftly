@@ -1,6 +1,6 @@
 # Flattened Codebase
 
-Total files: 46
+Total files: 35
 
 ## Table of Contents
 
@@ -26,30 +26,19 @@ Total files: 46
 20. [.\src\lib\components\ui\card\index.ts](#file-20)
 21. [.\src\lib\index.ts](#file-21)
 22. [.\src\lib\services\datetime.ts](#file-22)
-23. [.\src\lib\utils.ts](#file-23)
-24. [.\src\routes\+layout.svelte](#file-24)
-25. [.\src\routes\+layout.ts](#file-25)
-26. [.\src\routes\+page.ts](#file-26)
-27. [.\src\routes\active-workout\+page.svelte](#file-27)
-28. [.\src\routes\main\+layout.svelte](#file-28)
-29. [.\src\routes\main\home\+page.svelte](#file-29)
-30. [.\src\routes\main\profile\+page.svelte](#file-30)
-31. [.\src\routes\main\workouts\+page.svelte](#file-31)
-32. [.\src-tauri\Cargo.toml](#file-32)
-33. [.\src-tauri\build.rs](#file-33)
-34. [.\src-tauri\capabilities\default.json](#file-34)
-35. [.\src-tauri\src\bin\export_bindings.rs](#file-35)
-36. [.\src-tauri\src\commands\api1.rs](#file-36)
-37. [.\src-tauri\src\commands\api2.rs](#file-37)
-38. [.\src-tauri\src\commands\mod.rs](#file-38)
-39. [.\src-tauri\src\db\connection.rs](#file-39)
-40. [.\src-tauri\src\db\mod.rs](#file-40)
-41. [.\src-tauri\src\lib.rs](#file-41)
-42. [.\src-tauri\src\main.rs](#file-42)
-43. [.\src-tauri\tauri.conf.json](#file-43)
-44. [.\svelte.config.js](#file-44)
-45. [.\tsconfig.json](#file-45)
-46. [.\vite.config.ts](#file-46)
+23. [.\src\lib\services\workout.service.svelte.ts](#file-23)
+24. [.\src\lib\utils.ts](#file-24)
+25. [.\src\routes\+layout.svelte](#file-25)
+26. [.\src\routes\+layout.ts](#file-26)
+27. [.\src\routes\+page.ts](#file-27)
+28. [.\src\routes\active-workout\+page.svelte](#file-28)
+29. [.\src\routes\main\+layout.svelte](#file-29)
+30. [.\src\routes\main\home\+page.svelte](#file-30)
+31. [.\src\routes\main\profile\+page.svelte](#file-31)
+32. [.\src\routes\main\workouts\+page.svelte](#file-32)
+33. [.\svelte.config.js](#file-33)
+34. [.\tsconfig.json](#file-34)
+35. [.\vite.config.ts](#file-35)
 
 ## File 1: .\README.md
 
@@ -179,7 +168,8 @@ export default ts.config(
 		"lint": "prettier --check . && eslint .",
 		"tauri": "tauri",
 		"export-bindings": "cargo run --bin export-bindings --manifest-path ./src-tauri/Cargo.toml",
-		"android:clear-pkg": "adb shell pm clear fr.requet.liftly"
+		"android:clear-pkg": "adb shell pm clear fr.requet.liftly",
+		"desktop:clear-app": "powershell rm -r -force C:\\Users\\batbo\\AppData\\Roaming\\fr.requet.liftly\\liftly.db"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
@@ -417,6 +407,44 @@ async anotherCommand(data: MyStruct) : Promise<Result<MyResponse, string>> {
 },
 async printLog() : Promise<void> {
     await TAURI_INVOKE("print_log");
+},
+/**
+ * Returns the currently active workout, if one exists.
+ */
+async getActiveWorkout() : Promise<Result<Workout | null, AppError>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("get_active_workout") };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Creates a new workout session.
+ * 
+ * This command will fail with a `WorkoutAlreadyInProgress` error if a workout
+ * is already active, ensuring that only one workout can be in progress at a time.
+ */
+async createWorkout() : Promise<Result<Workout, AppError>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("create_workout") };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Ends the currently active workout.
+ * 
+ * This command will fail with a `NoActiveWorkout` error if no workout is currently active.
+ */
+async endWorkout() : Promise<Result<Workout, AppError>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("end_workout") };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
 }
 }
 
@@ -430,8 +458,10 @@ async printLog() : Promise<void> {
 
 /** user-defined types **/
 
+export type AppError = { type: "Database"; data: string } | { type: "WorkoutAlreadyInProgress" } | { type: "NoActiveWorkout" }
 export type MyResponse = { message: string }
 export type MyStruct = { a: string }
+export type Workout = { id: number; start_datetime: string; end_datetime: string; status: string; notes: string | null }
 
 /** tauri-specta globals **/
 
@@ -904,7 +934,112 @@ const formatTimeDiff = (diff: number, useNanoSeconds: boolean = false): string =
 };
 ```
 
-## File 23: .\src\lib\utils.ts
+## File 23: .\src\lib\services\workout.service.svelte.ts
+
+```ts
+import { commands, type Workout } from '$lib/bindings';
+import { formatElapsedTime } from './datetime';
+
+class WorkoutService {
+	activeWorkout = $state<Workout | null>(null);
+	now = $state(new Date());
+
+	elapsedTime = $derived.by(() => {
+		if (!this.activeWorkout) {
+			return '00:00:00';
+		}
+		const startDateTime = new Date(this.activeWorkout.start_datetime);
+		return formatElapsedTime(startDateTime, this.now);
+	});
+
+	constructor() {
+		this.fetchActiveWorkout();
+
+		$effect.root(() => {
+			$effect(() => {
+				if (this.activeWorkout) {
+					const timerId = setInterval(() => {
+						this.now = new Date();
+					}, 1000);
+
+					return () => {
+						clearInterval(timerId);
+					};
+				}
+			});
+		});
+	}
+
+	/**
+	 * A reactive string of the formatted elapsed time for the active workout.
+	 * Updates every second.
+	 */
+
+	/**
+	 * A reactive boolean indicating if a workout is currently active.
+	 */
+	get isWorkoutActive() {
+		// This remains a simple getter, which is fine.
+		// For more complex derivations, $derived is preferred.
+		return this.activeWorkout !== null;
+	}
+
+	/**
+	 * Fetches the active workout from the backend and updates the state.
+	 */
+	async fetchActiveWorkout() {
+		try {
+			const workout = await commands.getActiveWorkout();
+			this.activeWorkout = workout.status === 'ok' ? workout.data : null;
+			if (workout.status !== 'ok') {
+				console.error('Failed to fetch active workout:', workout.error);
+			}
+		} catch (error) {
+			this.activeWorkout = null;
+			console.error('An unexpected error occurred while fetching the active workout:', error);
+		}
+	}
+
+	/**
+	 * Starts a new workout session.
+	 */
+	async startWorkout() {
+		try {
+			const workout = await commands.createWorkout();
+			if (workout.status === 'ok') {
+				this.activeWorkout = workout.data;
+			} else {
+				console.error('Failed to start workout:', workout.error);
+			}
+		} catch (error) {
+			console.error('An unexpected error occurred while starting a workout:', error);
+		}
+	}
+
+	/**
+	 * Ends the current workout session.
+	 */
+	async endWorkout() {
+		try {
+			const workout = await commands.endWorkout();
+			if (workout.status === 'ok') {
+				this.activeWorkout = null;
+			} else {
+				console.error('Failed to end workout:', workout.error.data);
+			}
+		} catch (error) {
+			console.error('An unexpected error occurred while ending the workout:', error);
+		}
+	}
+}
+
+/**
+ * A singleton instance of the WorkoutService for use throughout the application.
+ */
+export const workoutService = new WorkoutService();
+```
+
+## File 24: .\src\lib\utils.ts
 
 ```ts
 import { clsx, type ClassValue } from "clsx";
@@ -922,7 +1057,7 @@ export type WithoutChildrenOrChild<T> = WithoutChildren<WithoutChild<T>>;
 export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?: U | null };
 ```
 
-## File 24: .\src\routes\+layout.svelte
+## File 25: .\src\routes\+layout.svelte
 
 ```svelte
 <script lang="ts">
@@ -938,13 +1073,13 @@ export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?:
 </div>
 ```
 
-## File 25: .\src\routes\+layout.ts
+## File 26: .\src\routes\+layout.ts
 
 ```ts
 export const ssr = false;
 ```
 
-## File 26: .\src\routes\+page.ts
+## File 27: .\src\routes\+page.ts
 
 ```ts
 import { redirect } from '@sveltejs/kit';
@@ -954,77 +1089,90 @@ export function load() {
 }
 ```
 
-## File 27: .\src\routes\active-workout\+page.svelte
+## File 28: .\src\routes\active-workout\+page.svelte
 
 ```svelte
 <script>
+	import { goto } from '$app/navigation';
 	import PageWrapper from '$lib/components/layout/page-wrapper.svelte';
 	import { Button } from '$lib/components/ui/button';
-	import { formatElapsedTime } from '$lib/services/datetime';
+	import { workoutService } from '$lib/services/workout.service.svelte';
 	import { ArrowLeft, CircleCheckBig } from '@lucide/svelte';
-	import { onMount } from 'svelte';
 
-	let startDateTime = new Date();
-	let elapsedTime = $state(formatElapsedTime(startDateTime, startDateTime));
+	function goBackToHome() {
+		goto('/main/home', { replaceState: true });
+	}
 
-	onMount(() => {
-		const interval = setInterval(() => {
-			elapsedTime = formatElapsedTime(startDateTime, new Date());
-		}, 1000);
-
-		return () => clearInterval(interval);
-	});
+	function endWorkout() {
+		workoutService.endWorkout();
+	}
 </script>
 
 <header class="flex w-full flex-row items-center border-b p-2">
-	<a href="/main/home" class="flex h-auto flex-col items-center text-sm">
-		<Button variant="ghost" size="icon">
-			<ArrowLeft class="size-6" />
-		</Button>
-	</a>
+	<Button variant="ghost" size="icon" onclick={goBackToHome}>
+		<ArrowLeft class="size-6" />
+	</Button>
 	<div class="flex flex-1 justify-center">
-		<p class="flex items-center">{elapsedTime}</p>
+		<p class="flex items-center">{workoutService.elapsedTime}</p>
 	</div>
-	<Button variant="ghost" size="icon">
+	<Button variant="ghost" size="icon" onclick={endWorkout}>
 		<CircleCheckBig class="size-6" />
 	</Button>
 </header>
 
-<PageWrapper>salut</PageWrapper>
+<PageWrapper>
+	<pre class="bg-blue-50">{JSON.stringify(workoutService.activeWorkout)}</pre>
+</PageWrapper>
 ```
 
-## File 28: .\src\routes\main\+layout.svelte
+## File 29: .\src\routes\main\+layout.svelte
 
 ```svelte
 <script lang="ts">
 	import BottomNav from '$lib/components/layout/bottom-nav.svelte';
+	import { workoutService } from '$lib/services/workout.service.svelte';
 
 	let { children } = $props();
 </script>
 
 <div class="flex h-full flex-col justify-between">
 	{@render children?.()}
+
+	{#if workoutService.isWorkoutActive}
+		<a
+			href="/active-workout"
+			class="flex flex-col justify-around border-t bg-secondary py-2 text-center"
+		>
+			<h3 class="font-semibold underline">Ongoing workout</h3>
+			<p class="font-mono">{workoutService.elapsedTime}</p>
+		</a>
+	{/if}
 	<BottomNav />
 </div>
 ```
 
-## File 29: .\src\routes\main\home\+page.svelte
+## File 30: .\src\routes\main\home\+page.svelte
 
 ```svelte
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import PageWrapper from '$lib/components/layout/page-wrapper.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { Card } from '$lib/components/ui/card';
+	import { workoutService } from '$lib/services/workout.service.svelte';
 	import { Plus } from '@lucide/svelte';
+
+	function startWorkout() {
+		workoutService.startWorkout();
+		goto('/active-workout');
+	}
 </script>
 
 <PageWrapper title="Good morning!" subtitle="Ready to crush today's workout?">
-	<a href="/active-workout">
-		<Button size="lg" class="w-full">
-			<Plus class="mr-2 size-5" />
-			Start New Workout
-		</Button>
-	</a>
+	<Button size="lg" class="w-full" disabled={workoutService.isWorkoutActive} onclick={startWorkout}>
+		<Plus class="mr-2 size-5" />
+		Start New Workout
+	</Button>
 
 	<section class="flex flex-col gap-4">
 		<h2 class="text-lg font-semibold">Recent Activity (fake)</h2>
@@ -1054,7 +1202,7 @@ export function load() {
 </PageWrapper>
 ```
 
-## File 30: .\src\routes\main\profile\+page.svelte
+## File 31: .\src\routes\main\profile\+page.svelte
 
 ```svelte
 <script lang="ts">
@@ -1085,7 +1233,7 @@ export function load() {
 </PageWrapper>
 ```
 
-## File 31: .\src\routes\main\workouts\+page.svelte
+## File 32: .\src\routes\main\workouts\+page.svelte
 
 ```svelte
 <script>
@@ -1095,347 +1243,7 @@ export function load() {
 <PageWrapper title="This is workouts page">-</PageWrapper>
 ```
 
-## File 32: .\src-tauri\Cargo.toml
-
-```toml
-[package]
-name = "liftly"
-version = "0.1.0"
-description = "Liftly App"
-authors = ["brequet"]
-license = ""
-repository = ""
-edition = "2021"
-rust-version = "1.77.2"
-default-run = "liftly"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[lib]
-name = "app_lib"
-crate-type = ["staticlib", "cdylib", "rlib"]
-
-[[bin]]
-name = "export-bindings"
-path = "src/bin/export_bindings.rs"
-
-[build-dependencies]
-tauri-build = { version = "2.3.1", features = [] }
-
-[dependencies]
-serde_json = "1.0"
-serde = { version = "1.0", features = ["derive"] }
-log = "0.4"
-tauri = { version = "2.7.0", features = [] }
-tauri-plugin-log = "2"
-specta = "=2.0.0-rc.22"
-tauri-specta = { version = "=2.0.0-rc.21", features = ["derive", "typescript"] }
-specta-typescript = "0.0.9"
-tauri-plugin-sql = { version = "2", features = ["sqlite"] }
-sqlx = { version = "0.8.6", features = ["sqlite"] }
-once_cell = "1.21.3"
-```
-
-## File 33: .\src-tauri\build.rs
-
-```rs
-fn main() {
-    tauri_build::build();
-}
-```
-
-## File 34: .\src-tauri\capabilities\default.json
-
-```json
-{
-	"$schema": "../gen/schemas/desktop-schema.json",
-	"identifier": "default",
-	"description": "enables the default permissions",
-	"windows": ["main"],
-	"permissions": ["core:default", "sql:default", "sql:allow-execute"]
-}
-```
-
-## File 35: .\src-tauri\src\bin\export_bindings.rs
-
-```rs
-use specta_typescript::Typescript;
-
-fn main() {
-    let output_path = std::env::args()
-        .nth(1)
-        .unwrap_or_else(|| "./src/lib/bindings.ts".to_string());
-
-    let builder = app_lib::commands::specta_builder();
-
-    println!("Generating TypeScript bindings to: {}", output_path);
-
-    builder
-        .export(Typescript::default(), &output_path)
-        .expect("Failed to export typescript bindings");
-
-    println!("✅ TypeScript bindings generated successfully!");
-}
-```
-
-## File 36: .\src-tauri\src\commands\api1.rs
-
-```rs
-use tauri::State;
-
-use crate::db::connection::DbPool;
-
-#[tauri::command]
-#[specta::specta]
-pub fn hello_world(my_name: String) -> String {
-    format!("Hello, {my_name}! You've been greeted from Rust!")
-}
-
-#[tauri::command]
-#[specta::specta]
-pub fn goodbye_world() -> String {
-    "Goodbye!".to_string()
-}
-
-#[tauri::command]
-#[specta::specta]
-pub async fn get_db_tables(pool: State<'_, DbPool>) -> Result<Vec<String>, String> {
-    let query = "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'";
-
-    let table_names = sqlx::query_as::<_, (String,)>(query)
-        .fetch_all(&pool.0)
-        .await
-        .map_err(|e| e.to_string())?
-        .into_iter()
-        .map(|(name,)| name)
-        .collect();
-
-    Ok(table_names)
-}
-```
-
-## File 37: .\src-tauri\src\commands\api2.rs
-
-```rs
-use serde::{Deserialize, Serialize};
-use specta::Type;
-
-#[derive(Serialize, Deserialize, Type)]
-pub struct MyStruct {
-    a: String,
-}
-
-#[derive(Serialize, Deserialize, Type)]
-pub struct MyResponse {
-    message: String,
-}
-
-#[tauri::command]
-#[specta::specta]
-pub fn another_command(data: MyStruct) -> Result<MyResponse, String> {
-    Ok(MyResponse {
-        message: format!("Received: {}", data.a),
-    })
-}
-
-#[tauri::command]
-#[specta::specta]
-pub fn print_log() {
-    println!("Log message");
-}
-```
-
-## File 38: .\src-tauri\src\commands\mod.rs
-
-```rs
-use tauri_specta::{collect_commands, Builder, Commands};
-
-mod api1;
-mod api2;
-
-macro_rules! combine_commands {
-    ( $( $module:ident : [ $( $command:ident ),* ] ),* ) => {
-        collect_commands![
-            $( $( $module::$command ),* ),*
-        ]
-    };
-}
-
-fn get_all_commands() -> Commands<tauri::Wry> {
-    combine_commands!(
-        api1: [
-            hello_world,
-            goodbye_world,
-            get_db_tables
-        ],
-        api2: [
-            another_command,
-            print_log
-        ]
-    )
-}
-
-pub fn specta_builder() -> Builder<tauri::Wry> {
-    Builder::<tauri::Wry>::new().commands(get_all_commands())
-}
-```
-
-## File 39: .\src-tauri\src\db\connection.rs
-
-```rs
-use once_cell::sync::Lazy;
-use sqlx::{sqlite::SqlitePoolOptions, Pool, Sqlite};
-use std::path::PathBuf;
-use tauri::{AppHandle, Manager};
-use tauri_plugin_sql::{Migration, MigrationKind};
-
-const DB_NAME: &str = "liftly.db";
-static DB_URL: Lazy<String> = Lazy::new(|| format!("sqlite:{}", DB_NAME));
-
-pub struct DbPool(pub Pool<Sqlite>);
-
-fn get_app_data_dir(app: &AppHandle) -> PathBuf {
-    app.path()
-        .app_data_dir()
-        .expect("Failed to get app data directory")
-}
-
-pub async fn init_db_pool(app: &AppHandle) -> Result<DbPool, sqlx::Error> {
-    let app_data_dir = get_app_data_dir(app);
-    let db_path = app_data_dir.join(DB_NAME);
-
-    if !db_path.exists() {
-        std::fs::create_dir_all(&app_data_dir).expect("Failed to create app data directory");
-        std::fs::File::create(&db_path).expect("Failed to create database file");
-    }
-
-    log::info!("Database path: {:?}", db_path);
-
-    let pool = SqlitePoolOptions::new()
-        .max_connections(5)
-        .connect(db_path.to_str().unwrap())
-        .await?;
-    Ok(DbPool(pool))
-}
-
-pub fn get_db_plugin_config() -> (String, Vec<Migration>) {
-    (DB_URL.to_string(), get_migrations())
-}
-
-fn get_migrations() -> Vec<Migration> {
-    vec![Migration {
-        version: 1,
-        description: "create_users_table",
-        sql: "CREATE TABLE IF NOT EXISTS users (
-                  id    INTEGER PRIMARY KEY AUTOINCREMENT,
-                  name  TEXT NOT NULL,
-                  email TEXT UNIQUE NOT NULL
-              )",
-        kind: MigrationKind::Up,
-    }]
-}
-```
-
-## File 40: .\src-tauri\src\db\mod.rs
-
-```rs
-pub mod connection;
-```
-
-## File 41: .\src-tauri\src\lib.rs
-
-```rs
-use tauri::Manager;
-
-pub mod db;
-
-pub mod commands;
-
-#[cfg_attr(mobile, tauri::mobile_entry_point)]
-pub fn run() {
-    let builder = commands::specta_builder();
-
-    let (db_plugin_url, migrations) = db::connection::get_db_plugin_config();
-
-    let mut log_builder = tauri_plugin_log::Builder::new();
-
-    if cfg!(debug_assertions) {
-        log_builder = log_builder.level(log::LevelFilter::Info);
-    }
-
-    tauri::Builder::default()
-        .plugin(log_builder.build())
-        .plugin(
-            tauri_plugin_sql::Builder::new()
-                .add_migrations(&db_plugin_url, migrations)
-                .build(),
-        )
-        .setup(|app| {
-            let pool = tauri::async_runtime::block_on(db::connection::init_db_pool(app.handle()))?;
-            app.manage(pool);
-            // builder.mount_events(app); //TODO for events
-            Ok(())
-        })
-        .invoke_handler(builder.invoke_handler())
-        .run(tauri::generate_context!())
-        .expect("error while running tauri application");
-}
-```
-
-## File 42: .\src-tauri\src\main.rs
-
-```rs
-// Prevents additional console window on Windows in release, DO NOT REMOVE!!
-#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
-
-fn main() {
-    app_lib::run()
-}
-```
-
-## File 43: .\src-tauri\tauri.conf.json
-
-```json
-{
-	"$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-	"productName": "liftly",
-	"version": "0.1.0",
-	"identifier": "fr.requet.liftly",
-	"build": {
-		"frontendDist": "../build",
-		"devUrl": "http://localhost:1420",
-		"beforeDevCommand": "pnpm dev",
-		"beforeBuildCommand": "pnpm build"
-	},
-	"app": {
-		"windows": [
-			{
-				"title": "liftly",
-				"width": 800,
-				"height": 600,
-				"resizable": true,
-				"fullscreen": false
-			}
-		],
-		"security": {
-			"csp": null
-		}
-	},
-	"bundle": {
-		"active": true,
-		"targets": "all",
-		"icon": [
-			"icons/32x32.png",
-			"icons/128x128.png",
-			"icons/128x128@2x.png",
-			"icons/icon.icns",
-			"icons/icon.ico"
-		]
-	}
-}
-```
-
-## File 44: .\svelte.config.js
+## File 33: .\svelte.config.js
 
 ```js
 import adapter from '@sveltejs/adapter-static';
@@ -1455,7 +1263,7 @@ const config = {
 export default config;
 ```
 
-## File 45: .\tsconfig.json
+## File 34: .\tsconfig.json
 
 ```json
 {
@@ -1479,7 +1287,7 @@ export default config;
 }
 ```
 
-## File 46: .\vite.config.ts
+## File 35: .\vite.config.ts
 
 ```ts
 import { sveltekit } from '@sveltejs/kit/vite';

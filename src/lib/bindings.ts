@@ -29,6 +29,44 @@ async anotherCommand(data: MyStruct) : Promise<Result<MyResponse, string>> {
 },
 async printLog() : Promise<void> {
     await TAURI_INVOKE("print_log");
+},
+/**
+ * Returns the currently active workout, if one exists.
+ */
+async getActiveWorkout() : Promise<Result<Workout | null, AppError>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("get_active_workout") };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Creates a new workout session.
+ * 
+ * This command will fail with a `WorkoutAlreadyInProgress` error if a workout
+ * is already active, ensuring that only one workout can be in progress at a time.
+ */
+async createWorkout() : Promise<Result<Workout, AppError>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("create_workout") };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+/**
+ * Ends the currently active workout.
+ * 
+ * This command will fail with a `NoActiveWorkout` error if no workout is currently active.
+ */
+async endWorkout() : Promise<Result<Workout, AppError>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("end_workout") };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
 }
 }
 
@@ -42,8 +80,10 @@ async printLog() : Promise<void> {
 
 /** user-defined types **/
 
+export type AppError = { type: "Database"; data: string } | { type: "WorkoutAlreadyInProgress" } | { type: "NoActiveWorkout" }
 export type MyResponse = { message: string }
 export type MyStruct = { a: string }
+export type Workout = { id: number; start_datetime: string; end_datetime: string; status: string; notes: string | null }
 
 /** tauri-specta globals **/
 

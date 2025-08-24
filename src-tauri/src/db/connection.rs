@@ -2,18 +2,12 @@ use once_cell::sync::Lazy;
 use sqlx::{sqlite::SqlitePoolOptions, Pool, Sqlite};
 use std::path::PathBuf;
 use tauri::{AppHandle, Manager};
-use tauri_plugin_sql::{Migration, MigrationKind};
+use tauri_plugin_sql::Migration;
 
 const DB_NAME: &str = "liftly.db";
 static DB_URL: Lazy<String> = Lazy::new(|| format!("sqlite:{}", DB_NAME));
 
 pub struct DbPool(pub Pool<Sqlite>);
-
-fn get_app_data_dir(app: &AppHandle) -> PathBuf {
-    app.path()
-        .app_data_dir()
-        .expect("Failed to get app data directory")
-}
 
 pub async fn init_db_pool(app: &AppHandle) -> Result<DbPool, sqlx::Error> {
     let app_data_dir = get_app_data_dir(app);
@@ -34,18 +28,11 @@ pub async fn init_db_pool(app: &AppHandle) -> Result<DbPool, sqlx::Error> {
 }
 
 pub fn get_db_plugin_config() -> (String, Vec<Migration>) {
-    (DB_URL.to_string(), get_migrations())
+    (DB_URL.to_string(), crate::db::migration::get_migrations())
 }
 
-fn get_migrations() -> Vec<Migration> {
-    vec![Migration {
-        version: 1,
-        description: "create_users_table",
-        sql: "CREATE TABLE IF NOT EXISTS users (
-                  id    INTEGER PRIMARY KEY AUTOINCREMENT,
-                  name  TEXT NOT NULL,
-                  email TEXT UNIQUE NOT NULL
-              )",
-        kind: MigrationKind::Up,
-    }]
+fn get_app_data_dir(app: &AppHandle) -> PathBuf {
+    app.path()
+        .app_data_dir()
+        .expect("Failed to get app data directory")
 }

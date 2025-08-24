@@ -1,17 +1,22 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import PageWrapper from '$lib/components/layout/page-wrapper.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { Card } from '$lib/components/ui/card';
+	import { workoutService } from '$lib/services/workout.service.svelte';
 	import { Plus } from '@lucide/svelte';
+
+	function startWorkout() {
+		workoutService.startWorkout();
+		goto('/active-workout');
+	}
 </script>
 
 <PageWrapper title="Good morning!" subtitle="Ready to crush today's workout?">
-	<a href="/active-workout">
-		<Button size="lg" class="w-full">
-			<Plus class="mr-2 size-5" />
-			Start New Workout
-		</Button>
-	</a>
+	<Button size="lg" class="w-full" disabled={workoutService.isWorkoutActive} onclick={startWorkout}>
+		<Plus class="mr-2 size-5" />
+		Start New Workout
+	</Button>
 
 	<section class="flex flex-col gap-4">
 		<h2 class="text-lg font-semibold">Recent Activity (fake)</h2>

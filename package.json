@@ -14,7 +14,8 @@
 		"lint": "prettier --check . && eslint .",
 		"tauri": "tauri",
 		"export-bindings": "cargo run --bin export-bindings --manifest-path ./src-tauri/Cargo.toml",
-		"android:clear-pkg": "adb shell pm clear fr.requet.liftly"
+		"android:clear-pkg": "adb shell pm clear fr.requet.liftly",
+		"desktop:clear-app": "powershell rm -r -force C:\\Users\\batbo\\AppData\\Roaming\\fr.requet.liftly\\liftly.db"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
