@@ -1,6 +1,7 @@
 package fr.requet.liftly
 
 import android.os.Bundle
+import androidx.core.view.WindowCompat
 import androidx.activity.enableEdgeToEdge
 import android.webkit.WebView
 import android.util.Log
@@ -13,6 +14,7 @@ class MainActivity : TauriActivity() {
     Log.i("MainActivity", "onCreate called")
     enableEdgeToEdge()
     super.onCreate(savedInstanceState)
+     WindowCompat.setDecorFitsSystemWindows(window, true)
   }
 
    override fun onWebViewCreate(webView: WebView) {

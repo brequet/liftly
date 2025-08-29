@@ -8,7 +8,7 @@
 </script>
 
 <div class="flex h-full flex-col">
-	<main class="flex-1 overflow-y-auto pt-12">
+	<main class="flex-1 overflow-y-auto">
 		{@render children?.()}
 	</main>
 </div>
