@@ -1,7 +1,9 @@
 <script>
 	import { goto } from '$app/navigation';
 	import PageWrapper from '$lib/components/layout/page-wrapper.svelte';
-	import { Button } from '$lib/components/ui/button';
+	import { Button, buttonVariants } from '$lib/components/ui/button';
+	import * as Drawer from '$lib/components/ui/drawer';
+	import Input from '$lib/components/ui/input/input.svelte';
 	import { workoutService } from '$lib/services/workout.service.svelte';
 	import { ArrowLeft, CircleCheckBig } from '@lucide/svelte';
 
@@ -27,5 +29,17 @@
 </header>
 
 <PageWrapper>
-	<pre class="bg-blue-50">{JSON.stringify(workoutService.activeWorkout)}</pre>
+	<Drawer.Root>
+		<Drawer.Trigger class={buttonVariants({ variant: 'default' })}>Add Exercise</Drawer.Trigger>
+		<Drawer.Content>
+			<Drawer.Header>
+				<Input placeholder="Bench press..." />
+			</Drawer.Header>
+
+			<Drawer.Footer>
+				<Button>Submit</Button>
+				<Drawer.Close>Cancel</Drawer.Close>
+			</Drawer.Footer>
+		</Drawer.Content>
+	</Drawer.Root>
 </PageWrapper>

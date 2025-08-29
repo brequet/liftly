@@ -17,6 +17,7 @@ pub fn run() {
     }
 
     tauri::Builder::default()
+        .plugin(tauri_plugin_log::Builder::new().build())
         .plugin(log_builder.build())
         .plugin(
             tauri_plugin_sql::Builder::new()

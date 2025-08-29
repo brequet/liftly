@@ -56,12 +56,12 @@ where
 }
 
 pub async fn seed_exercises_if_needed(pool: &SqlitePool) -> Result<(), SeedError> {
-    let count: (i64,) =
-        sqlx::query_as("SELECT COUNT(*) FROM exercises WHERE predefined_id IS NOT NULL")
+    let count: i64 =
+        sqlx::query_scalar("SELECT COUNT(*) FROM exercises WHERE predefined_id IS NOT NULL")
             .fetch_one(pool)
             .await?;
 
-    if count.0 > 0 {
+    if count > 0 {
         return Ok(());
     }
     log::info!("Seeding predefined exercises...");
