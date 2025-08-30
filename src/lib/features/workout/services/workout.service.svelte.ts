@@ -1,5 +1,5 @@
 import { commands, type Workout } from '$lib/generated/bindings';
-import { formatElapsedTime } from './datetime.utils';
+import { formatElapsedTime } from '$lib/utils';
 
 class WorkoutService {
 	activeWorkout = $state<Workout | null>(null);

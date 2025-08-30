@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PageWrapper from '$lib/components/layout/page-wrapper.svelte';
+	import { PageWrapper } from '$lib/components/layout';
 	import { getName, getVersion } from '@tauri-apps/api/app';
 	import { onMount } from 'svelte';
 

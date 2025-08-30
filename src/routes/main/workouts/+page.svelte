@@ -1,5 +1,5 @@
 <script>
-	import PageWrapper from '$lib/components/layout/page-wrapper.svelte';
+	import { PageWrapper } from '$lib/components/layout';
 </script>
 
 <PageWrapper title="This is workouts page">-</PageWrapper>

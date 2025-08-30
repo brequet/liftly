@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ExerciseLight } from '$lib/generated/bindings';
-	import { exerciseImageService } from '$lib/services/exercise-image.service.svelte';
 	import { Dumbbell } from '@lucide/svelte';
+	import { exerciseImageService } from '../services';
 
 	interface Props {
 		exercise: ExerciseLight;

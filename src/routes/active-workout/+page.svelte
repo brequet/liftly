@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import ExerciseSearch from '$lib/components/exercise-search.svelte';
-	import PageWrapper from '$lib/components/layout/page-wrapper.svelte';
+	import { PageWrapper } from '$lib/components/layout';
 	import { Button, buttonVariants } from '$lib/components/ui/button';
 	import * as Drawer from '$lib/components/ui/drawer';
-	import { workoutService } from '$lib/services/workout.service.svelte';
+	import { ExerciseSearch } from '$lib/features/exercise';
+	import { workoutService } from '$lib/features/workout';
 	import { ArrowLeft, CircleCheckBig, Dumbbell } from '@lucide/svelte';
 
 	function goBackToHome() {

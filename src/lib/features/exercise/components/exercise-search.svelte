@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { onVisible } from '$lib/actions/on-visible.action';
-	import ExerciseRowItem from '$lib/components/exercise-row-item.svelte';
-	import { Separator } from '$lib/components/ui/separator/';
-	import { usePaginatedSearch } from '$lib/composables/usePaginatedSearch.svelte';
+	import { Input } from '$lib/components/ui/input';
+	import { ScrollArea } from '$lib/components/ui/scroll-area';
+	import { Separator } from '$lib/components/ui/separator';
+	import { usePaginatedSearch } from '$lib/composables';
 	import { commands, type ExerciseLight } from '$lib/generated/bindings';
 	import { LoaderCircle } from '@lucide/svelte';
-	import { Input } from './ui/input';
-	import { ScrollArea } from './ui/scroll-area';
+	import ExerciseRowItem from './exercise-row-item.svelte';
 
 	const search = usePaginatedSearch<ExerciseLight>(commands.searchExercises);
 </script>
@@ -31,7 +31,6 @@
 					</div>
 				{/if}
 
-				<!-- Placeholder to trigger loading more -->
 				{#if search.hasMore && !search.isFetchingMore}
 					<div class="h-10 w-full" use:onVisible={{ callback: search.loadMore }}></div>
 				{/if}

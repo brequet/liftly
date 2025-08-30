@@ -1,5 +1,4 @@
 class DrawerService {
-	// Use a Map to store drawers by a unique ID. This is the core fix.
 	private openDrawers = $state(new Map<string, () => void>());
 
 	isDrawerOpen = $derived(this.openDrawers.size > 0);

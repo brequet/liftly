@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '$lib/services/native-bridge.service';
+	// To make sure it's initialized
 	import '../app.css';
 
 	let { children } = $props();

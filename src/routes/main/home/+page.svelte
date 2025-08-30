@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import PageWrapper from '$lib/components/layout/page-wrapper.svelte';
+	import { PageWrapper } from '$lib/components/layout';
 	import { Button } from '$lib/components/ui/button';
 	import { Card } from '$lib/components/ui/card';
-	import { workoutService } from '$lib/services/workout.service.svelte';
+	import { workoutService } from '$lib/features/workout';
 	import { Plus } from '@lucide/svelte';
 
 	function startWorkout() {
