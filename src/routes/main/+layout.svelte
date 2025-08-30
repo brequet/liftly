@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { BottomNav } from '$lib/components/layout';
 	import { ActiveWorkoutBanner } from '$lib/features/workout';
+	import BottomNav from './_components/bottom-nav.svelte';
 
 	let { children } = $props();
 </script>
