@@ -5,9 +5,9 @@
 
 
 export const commands = {
-async searchExercises(query: string) : Promise<Result<ExerciseLight[], ApiError>> {
+async searchExercises(query: string, pagination: PaginationParams) : Promise<Result<Paginated<ExerciseLight>, ApiError>> {
     try {
-    return { status: "ok", data: await TAURI_INVOKE("search_exercises", { query }) };
+    return { status: "ok", data: await TAURI_INVOKE("search_exercises", { query, pagination }) };
 } catch (e) {
     if(e instanceof Error) throw e;
     else return { status: "error", error: e  as any };
@@ -49,12 +49,10 @@ async endWorkout() : Promise<Result<Workout, ApiError>> {
 
 /** user-defined types **/
 
-/**
- * The error type sent to the frontend.
- * It's designed to be serializable and understood by TypeScript.
- */
 export type ApiError = { type: "Database"; data: string } | { type: "WorkoutAlreadyInProgress" } | { type: "NoActiveWorkout" } | { type: "Internal"; data: string }
 export type ExerciseLight = { id: number; predefined_id: string | null; title: string }
+export type Paginated<T> = { items: T[]; hasMore: boolean; page: number; pageSize: number }
+export type PaginationParams = { page?: number; pageSize?: number }
 export type Workout = { id: number; start_datetime: string; end_datetime: string; status: string; notes: string | null }
 
 /** tauri-specta globals **/

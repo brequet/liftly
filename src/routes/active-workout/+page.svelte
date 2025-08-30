@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { onVisible } from '$lib/actions/on-visible.action';
 	import ExerciseRowItem from '$lib/components/exercise-row-item.svelte';
 	import PageWrapper from '$lib/components/layout/page-wrapper.svelte';
 	import { Button, buttonVariants } from '$lib/components/ui/button';
@@ -9,40 +10,61 @@
 	import { Separator } from '$lib/components/ui/separator/';
 	import { commands, type ExerciseLight } from '$lib/generated/bindings';
 	import { workoutService } from '$lib/services/workout.service.svelte';
-	import { ArrowLeft, CircleCheckBig, Dumbbell } from '@lucide/svelte';
+	import { ArrowLeft, CircleCheckBig, Dumbbell, Loader2 } from '@lucide/svelte';
 
-	// 1. State for the input filter and the resulting exercises
+	// State for search and pagination
 	let filter = $state('');
-	let exercises = $state<ExerciseLight[]>([]);
-	let isLoading = $state(true);
+	let items = $state<ExerciseLight[]>([]);
+	let page = $state(1);
+	let hasMore = $state(true);
+	let isFetchingMore = $state(false);
 
-	// 2. Use an effect to fetch data when the filter changes (with debouncing)
+	const PAGE_SIZE = 20;
+
 	$effect(() => {
-		const currentFilter = filter;
-		// The cleanup function runs before the effect re-runs or when the component unmounts.
-		// It cancels the pending API call, preventing race conditions and unnecessary network requests.
-		const handler = setTimeout(async () => {
-			try {
-				const result = await commands.searchExercises(currentFilter);
-				if (result.status === 'ok') {
-					exercises = result.data;
-				} else {
-					console.error('Failed to search exercises:', JSON.stringify(result.error));
-					exercises = [];
-				}
-			} catch (error) {
-				console.error('An unexpected error occurred during search:', error);
-				exercises = [];
-			} finally {
-				isLoading = false;
-			}
-		}, 300); // 300ms debounce delay
-
-		// This cleanup function is crucial for debouncing.
-		return () => {
-			clearTimeout(handler);
-		};
+		loadExercises(filter, 1, false);
 	});
+
+	async function loadExercises(query: string, pageToLoad: number, append: boolean) {
+		if (!hasMore) return;
+
+		if (append) {
+			isFetchingMore = true;
+		}
+
+		try {
+			const result = await commands.searchExercises(query, {
+				page: pageToLoad,
+				pageSize: PAGE_SIZE
+			});
+
+			if (result.status === 'ok') {
+				const paginatedData = result.data;
+				if (append) {
+					items = [...items, ...paginatedData.items];
+				} else {
+					items = paginatedData.items;
+				}
+				hasMore = paginatedData.hasMore;
+				page = pageToLoad;
+			} else {
+				console.error('Failed to search exercises:', JSON.stringify(result.error));
+				items = []; // Clear items on error
+				hasMore = false;
+			}
+		} catch (error) {
+			console.error('An unexpected error occurred during search:', error);
+			items = []; // Clear items on error
+			hasMore = false;
+		} finally {
+			isFetchingMore = false;
+		}
+	}
+
+	function loadMore() {
+		if (isFetchingMore || !hasMore) return;
+		loadExercises(filter, page + 1, true);
+	}
 
 	function goBackToHome() {
 		goto('/main/home', { replaceState: true });
@@ -50,6 +72,7 @@
 
 	function endWorkout() {
 		workoutService.endWorkout();
+		goBackToHome();
 	}
 </script>
 
@@ -58,7 +81,7 @@
 		<ArrowLeft class="size-6" />
 	</Button>
 	<div class="flex flex-1 justify-center">
-		<p class="flex items-center">{workoutService.elapsedTime}</p>
+		<p class="flex items-center font-mono text-lg">{workoutService.elapsedTime}</p>
 	</div>
 	<Button variant="ghost" size="icon" onclick={endWorkout}>
 		<CircleCheckBig class="size-6" />
@@ -73,22 +96,38 @@
 		</Drawer.Trigger>
 		<Drawer.Content>
 			<Drawer.Header>
-				<Input placeholder="Bench press..." bind:value={filter} />
+				<Input placeholder="Search exercises..." bind:value={filter} />
 			</Drawer.Header>
 			<ScrollArea class="flex-1 overflow-hidden p-4 pt-0">
-				<div class="p-4">
-					{#if isLoading}
-						<p>Loading...</p>
-					{:else if exercises.length > 0}
-						{#each exercises as exercise (exercise.id)}
+				<div>
+					{#if items.length > 0}
+						{#each items as exercise (exercise.id)}
 							<ExerciseRowItem {exercise} />
 							<Separator />
 						{/each}
+
+						{#if isFetchingMore}
+							<div class="flex items-center justify-center p-4">
+								<Loader2 class="size-5 animate-spin text-muted-foreground" />
+								<span class="ml-2 text-sm text-muted-foreground">Loading more...</span>
+							</div>
+						{/if}
+
+						<!-- Placeholder to trigger loading more -->
+						{#if hasMore && !isFetchingMore}
+							<div class="h-10 w-full" use:onVisible={{ callback: loadMore }}></div>
+						{/if}
 					{:else}
-						<p>No exercises found.</p>
+						<p class="p-8 text-center text-muted-foreground">No exercises found.</p>
 					{/if}
 				</div>
 			</ScrollArea>
 		</Drawer.Content>
 	</Drawer.Root>
+
+	<div
+		class="flex flex-1 items-center justify-center rounded-lg border-2 border-dashed border-border"
+	>
+		<p class="text-muted-foreground">Selected exercises will appear here.</p>
+	</div>
 </PageWrapper>

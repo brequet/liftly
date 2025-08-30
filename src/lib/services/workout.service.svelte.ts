@@ -5,6 +5,8 @@ class WorkoutService {
 	activeWorkout = $state<Workout | null>(null);
 	now = $state(new Date());
 
+	isWorkoutActive = $derived(this.activeWorkout !== null);
+
 	elapsedTime = $derived.by(() => {
 		if (!this.activeWorkout || this.now < new Date(this.activeWorkout.start_datetime)) {
 			return '00:00:00';
@@ -29,15 +31,6 @@ class WorkoutService {
 				}
 			});
 		});
-	}
-
-	/**
-	 * A reactive boolean indicating if a workout is currently active.
-	 */
-	get isWorkoutActive() {
-		// This remains a simple getter, which is fine.
-		// For more complex derivations, $derived is preferred.
-		return this.activeWorkout !== null;
 	}
 
 	/**
