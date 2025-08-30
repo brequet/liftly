@@ -13,6 +13,45 @@ CREATE TABLE
         tips TEXT
     );
 
+CREATE VIRTUAL TABLE exercises_fts USING fts5 (
+    title,
+    content = 'exercises', -- The original table to draw content from
+    content_rowid = 'id' -- The column that maps to the original table's rowid
+);
+
+-- Trigger to update the FTS table when a new exercise is inserted
+CREATE TRIGGER exercises_ai AFTER INSERT ON exercises BEGIN
+INSERT INTO
+    exercises_fts (rowid, title)
+VALUES
+    (new.id, new.title);
+
+END;
+
+-- Trigger to update the FTS table when an exercise is deleted
+CREATE TRIGGER exercises_ad AFTER DELETE ON exercises BEGIN
+INSERT INTO
+    exercises_fts (exercises_fts, rowid, title)
+VALUES
+    ('delete', old.id, old.title);
+
+END;
+
+-- Trigger to update the FTS table when an exercise is updated
+CREATE TRIGGER exercises_au AFTER
+UPDATE ON exercises BEGIN
+INSERT INTO
+    exercises_fts (exercises_fts, rowid, title)
+VALUES
+    ('delete', old.id, old.title);
+
+INSERT INTO
+    exercises_fts (rowid, title)
+VALUES
+    (new.id, new.title);
+
+END;
+
 CREATE TABLE
     IF NOT EXISTS workouts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,

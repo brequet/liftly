@@ -5,30 +5,13 @@
 
 
 export const commands = {
-async helloWorld(myName: string) : Promise<string> {
-    return await TAURI_INVOKE("hello_world", { myName });
-},
-async goodbyeWorld() : Promise<string> {
-    return await TAURI_INVOKE("goodbye_world");
-},
-async getDbTables() : Promise<Result<string[], string>> {
+async searchExercises(query: string) : Promise<Result<ExerciseLight[], AppError>> {
     try {
-    return { status: "ok", data: await TAURI_INVOKE("get_db_tables") };
+    return { status: "ok", data: await TAURI_INVOKE("search_exercises", { query }) };
 } catch (e) {
     if(e instanceof Error) throw e;
     else return { status: "error", error: e  as any };
 }
-},
-async anotherCommand(data: MyStruct) : Promise<Result<MyResponse, string>> {
-    try {
-    return { status: "ok", data: await TAURI_INVOKE("another_command", { data }) };
-} catch (e) {
-    if(e instanceof Error) throw e;
-    else return { status: "error", error: e  as any };
-}
-},
-async printLog() : Promise<void> {
-    await TAURI_INVOKE("print_log");
 },
 /**
  * Returns the currently active workout, if one exists.
@@ -81,8 +64,7 @@ async endWorkout() : Promise<Result<Workout, AppError>> {
 /** user-defined types **/
 
 export type AppError = { type: "Database"; data: string } | { type: "WorkoutAlreadyInProgress" } | { type: "NoActiveWorkout" }
-export type MyResponse = { message: string }
-export type MyStruct = { a: string }
+export type ExerciseLight = { id: number; predefined_id: string | null; title: string }
 export type Workout = { id: number; start_datetime: string; end_datetime: string; status: string; notes: string | null }
 
 /** tauri-specta globals **/

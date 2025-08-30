@@ -1,7 +1,6 @@
 use tauri_specta::{collect_commands, Builder, Commands};
 
-mod api1;
-mod api2;
+mod execises;
 mod workout;
 
 mod error;
@@ -16,14 +15,8 @@ macro_rules! combine_commands {
 
 fn get_all_commands() -> Commands<tauri::Wry> {
     combine_commands!(
-        api1: [
-            hello_world,
-            goodbye_world,
-            get_db_tables
-        ],
-        api2: [
-            another_command,
-            print_log
+        execises: [
+            search_exercises
         ],
         workout: [
             get_active_workout,
