@@ -3,8 +3,6 @@
 	import '../app.css';
 
 	let { children } = $props();
-
-	// The previous onMount logic has been moved to the NativeBridgeService.
 </script>
 
 <div class="flex h-full flex-col">
