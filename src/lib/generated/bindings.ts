@@ -5,7 +5,7 @@
 
 
 export const commands = {
-async searchExercises(query: string) : Promise<Result<ExerciseLight[], AppError>> {
+async searchExercises(query: string) : Promise<Result<ExerciseLight[], ApiError>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("search_exercises", { query }) };
 } catch (e) {
@@ -13,10 +13,7 @@ async searchExercises(query: string) : Promise<Result<ExerciseLight[], AppError>
     else return { status: "error", error: e  as any };
 }
 },
-/**
- * Returns the currently active workout, if one exists.
- */
-async getActiveWorkout() : Promise<Result<Workout | null, AppError>> {
+async getActiveWorkout() : Promise<Result<Workout | null, ApiError>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("get_active_workout") };
 } catch (e) {
@@ -24,13 +21,7 @@ async getActiveWorkout() : Promise<Result<Workout | null, AppError>> {
     else return { status: "error", error: e  as any };
 }
 },
-/**
- * Creates a new workout session.
- * 
- * This command will fail with a `WorkoutAlreadyInProgress` error if a workout
- * is already active, ensuring that only one workout can be in progress at a time.
- */
-async createWorkout() : Promise<Result<Workout, AppError>> {
+async createWorkout() : Promise<Result<Workout, ApiError>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("create_workout") };
 } catch (e) {
@@ -38,12 +29,7 @@ async createWorkout() : Promise<Result<Workout, AppError>> {
     else return { status: "error", error: e  as any };
 }
 },
-/**
- * Ends the currently active workout.
- * 
- * This command will fail with a `NoActiveWorkout` error if no workout is currently active.
- */
-async endWorkout() : Promise<Result<Workout, AppError>> {
+async endWorkout() : Promise<Result<Workout, ApiError>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("end_workout") };
 } catch (e) {
@@ -63,7 +49,11 @@ async endWorkout() : Promise<Result<Workout, AppError>> {
 
 /** user-defined types **/
 
-export type AppError = { type: "Database"; data: string } | { type: "WorkoutAlreadyInProgress" } | { type: "NoActiveWorkout" }
+/**
+ * The error type sent to the frontend.
+ * It's designed to be serializable and understood by TypeScript.
+ */
+export type ApiError = { type: "Database"; data: string } | { type: "WorkoutAlreadyInProgress" } | { type: "NoActiveWorkout" } | { type: "Internal"; data: string }
 export type ExerciseLight = { id: number; predefined_id: string | null; title: string }
 export type Workout = { id: number; start_datetime: string; end_datetime: string; status: string; notes: string | null }
 

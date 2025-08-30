@@ -1,15 +1,18 @@
 use tauri::Manager;
 
+pub mod domain;
+pub mod error;
+pub mod models;
+pub mod repository;
+
 pub mod db;
 
-pub mod commands;
+pub mod api;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    let builder = commands::specta_builder();
-
+    let builder = api::specta_builder();
     let (db_plugin_url, migrations) = db::connection::get_db_plugin_config();
-
     let mut log_builder = tauri_plugin_log::Builder::new();
 
     if cfg!(debug_assertions) {
@@ -17,7 +20,6 @@ pub fn run() {
     }
 
     tauri::Builder::default()
-        .plugin(tauri_plugin_log::Builder::new().build())
         .plugin(log_builder.build())
         .plugin(
             tauri_plugin_sql::Builder::new()
@@ -29,8 +31,9 @@ pub fn run() {
 
             tauri::async_runtime::block_on(db::seed::seed_exercises_if_needed(&pool.0))?;
 
-            app.manage(pool);
-            // builder.mount_events(app); //TODO for events
+            let app_state = domain::AppState::new(pool);
+            app.manage(app_state);
+
             Ok(())
         })
         .invoke_handler(builder.invoke_handler())

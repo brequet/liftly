@@ -7,6 +7,7 @@ use tauri_plugin_sql::Migration;
 const DB_NAME: &str = "liftly.db";
 static DB_URL: Lazy<String> = Lazy::new(|| format!("sqlite:{}", DB_NAME));
 
+#[derive(Clone)]
 pub struct DbPool(pub Pool<Sqlite>);
 
 pub async fn init_db_pool(app: &AppHandle) -> Result<DbPool, sqlx::Error> {

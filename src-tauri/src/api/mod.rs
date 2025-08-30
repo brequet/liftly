@@ -1,9 +1,7 @@
 use tauri_specta::{collect_commands, Builder, Commands};
 
-mod execises;
+mod exercise;
 mod workout;
-
-mod error;
 
 macro_rules! combine_commands {
     ( $( $module:ident : [ $( $command:ident ),* ] ),* ) => {
@@ -15,7 +13,7 @@ macro_rules! combine_commands {
 
 fn get_all_commands() -> Commands<tauri::Wry> {
     combine_commands!(
-        execises: [
+        exercise: [
             search_exercises
         ],
         workout: [
