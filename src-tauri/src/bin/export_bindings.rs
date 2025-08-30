@@ -3,7 +3,7 @@ use specta_typescript::Typescript;
 fn main() {
     let output_path = std::env::args()
         .nth(1)
-        .unwrap_or_else(|| "./src/lib/bindings.ts".to_string());
+        .unwrap_or_else(|| "./src/lib/generated/bindings.ts".to_string());
 
     let builder = app_lib::commands::specta_builder();
 

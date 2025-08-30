@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ExerciseLight } from '$lib/bindings';
+	import type { ExerciseLight } from '$lib/generated/bindings';
 	import { exerciseImageService } from '$lib/services/exercise-image.service.svelte';
 	import { Dumbbell } from '@lucide/svelte';
 

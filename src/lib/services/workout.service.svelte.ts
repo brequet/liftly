@@ -1,4 +1,4 @@
-import { commands, type Workout } from '$lib/bindings';
+import { commands, type Workout } from '$lib/generated/bindings';
 import { formatElapsedTime } from './datetime.utils';
 
 class WorkoutService {

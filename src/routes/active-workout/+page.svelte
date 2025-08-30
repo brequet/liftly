@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { commands, type ExerciseLight } from '$lib/bindings';
 	import ExerciseRowItem from '$lib/components/exercise-row-item.svelte';
 	import PageWrapper from '$lib/components/layout/page-wrapper.svelte';
 	import { Button, buttonVariants } from '$lib/components/ui/button';
@@ -8,6 +7,7 @@
 	import { Input } from '$lib/components/ui/input/';
 	import { ScrollArea } from '$lib/components/ui/scroll-area/';
 	import { Separator } from '$lib/components/ui/separator/';
+	import { commands, type ExerciseLight } from '$lib/generated/bindings';
 	import { workoutService } from '$lib/services/workout.service.svelte';
 	import { ArrowLeft, CircleCheckBig, Dumbbell } from '@lucide/svelte';
 
