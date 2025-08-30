@@ -15,9 +15,7 @@ pub fn run() {
     let (db_plugin_url, migrations) = db::connection::get_db_plugin_config();
     let mut log_builder = tauri_plugin_log::Builder::new();
 
-    if cfg!(debug_assertions) {
-        log_builder = log_builder.level(log::LevelFilter::Info);
-    }
+    log_builder = log_builder.level(log::LevelFilter::Info); // TODO: log level ?
 
     tauri::Builder::default()
         .plugin(log_builder.build())
