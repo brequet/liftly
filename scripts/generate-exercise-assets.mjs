@@ -34,9 +34,7 @@ async function generateManifest() {
 		console.log(`Found images for ${Object.keys(imageMap).length} unique exercises.`);
 	} catch (error) {
 		if (error.code === 'ENOENT') {
-			console.warn(
-				`⚠️ static/exercises directory not found. Skipping manifest generation.`
-			);
+			console.warn(`⚠️ static/exercises directory not found. Skipping manifest generation.`);
 			// Create an empty manifest to prevent build errors
 			await fs.mkdir(outputDir, { recursive: true });
 			await fs.writeFile(outputPath, JSON.stringify({}));

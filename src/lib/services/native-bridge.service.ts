@@ -18,7 +18,7 @@ class NativeBridgeService {
 		 * @param keyName - The name of the key that was pressed (e.g., 'back').
 		 * @returns {boolean} - `false` to prevent native action, `true` to allow it.
 		 */
-		(window as any).onNativeKeyEvent = (keyName: string): boolean => {
+		window.onNativeKeyEvent = (keyName: string): boolean => {
 			info(`[FRONTEND] onNativeKeyEvent received: ${keyName}`);
 
 			if (keyName === 'back') {
@@ -42,7 +42,7 @@ class NativeBridgeService {
 	cleanup() {
 		if (typeof window !== 'undefined') {
 			info('[FRONTEND] Cleaning up native key event handler.');
-			delete (window as any).onNativeKeyEvent;
+			delete window.onNativeKeyEvent;
 		}
 	}
 }

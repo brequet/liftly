@@ -1,1077 +1,271 @@
 {
-  "0001": [
-    "/exercises/0001-relaxation.svg",
-    "/exercises/0001-tension.svg"
-  ],
-  "0002": [
-    "/exercises/0002-relaxation.svg",
-    "/exercises/0002-tension.svg"
-  ],
-  "0004": [
-    "/exercises/0004-relaxation.svg",
-    "/exercises/0004-tension.svg"
-  ],
-  "0005": [
-    "/exercises/0005-relaxation.svg",
-    "/exercises/0005-tension.svg"
-  ],
-  "0008": [
-    "/exercises/0008-relaxation.svg",
-    "/exercises/0008-tension.svg"
-  ],
-  "0009": [
-    "/exercises/0009-relaxation.svg",
-    "/exercises/0009-tension.svg"
-  ],
-  "0013": [
-    "/exercises/0013-relaxation.svg",
-    "/exercises/0013-tension.svg"
-  ],
-  "0014": [
-    "/exercises/0014-relaxation.svg",
-    "/exercises/0014-tension.svg"
-  ],
-  "0015": [
-    "/exercises/0015-relaxation.svg",
-    "/exercises/0015-tension.svg"
-  ],
-  "0016": [
-    "/exercises/0016-relaxation.svg",
-    "/exercises/0016-tension.svg"
-  ],
-  "0017": [
-    "/exercises/0017-relaxation.svg",
-    "/exercises/0017-tension.svg"
-  ],
-  "0018": [
-    "/exercises/0018-relaxation.svg",
-    "/exercises/0018-tension.svg"
-  ],
-  "0019": [
-    "/exercises/0019-relaxation.svg",
-    "/exercises/0019-tension.svg"
-  ],
-  "0020": [
-    "/exercises/0020-relaxation.svg",
-    "/exercises/0020-tension.svg"
-  ],
-  "0021": [
-    "/exercises/0021-relaxation.svg",
-    "/exercises/0021-tension.svg"
-  ],
-  "0022": [
-    "/exercises/0022-relaxation.svg",
-    "/exercises/0022-tension.svg"
-  ],
-  "0023": [
-    "/exercises/0023-relaxation.svg",
-    "/exercises/0023-tension.svg"
-  ],
-  "0024": [
-    "/exercises/0024-relaxation.svg",
-    "/exercises/0024-tension.svg"
-  ],
-  "0025": [
-    "/exercises/0025-relaxation.svg",
-    "/exercises/0025-tension.svg"
-  ],
-  "0026": [
-    "/exercises/0026-relaxation.svg",
-    "/exercises/0026-tension.svg"
-  ],
-  "0027": [
-    "/exercises/0027-relaxation.svg",
-    "/exercises/0027-tension.svg"
-  ],
-  "0028": [
-    "/exercises/0028-relaxation.svg",
-    "/exercises/0028-tension.svg"
-  ],
-  "0029": [
-    "/exercises/0029-relaxation.svg",
-    "/exercises/0029-tension.svg"
-  ],
-  "0030": [
-    "/exercises/0030-relaxation.svg",
-    "/exercises/0030-tension.svg"
-  ],
-  "0031": [
-    "/exercises/0031-relaxation.svg",
-    "/exercises/0031-tension.svg"
-  ],
-  "0032": [
-    "/exercises/0032-relaxation.svg",
-    "/exercises/0032-tension.svg"
-  ],
-  "0033": [
-    "/exercises/0033-relaxation.svg",
-    "/exercises/0033-tension.svg"
-  ],
-  "0034": [
-    "/exercises/0034-relaxation.svg",
-    "/exercises/0034-tension.svg"
-  ],
-  "0035": [
-    "/exercises/0035-relaxation.svg",
-    "/exercises/0035-tension.svg"
-  ],
-  "0037": [
-    "/exercises/0037-relaxation.svg",
-    "/exercises/0037-tension.svg"
-  ],
-  "0038": [
-    "/exercises/0038-relaxation.svg",
-    "/exercises/0038-tension.svg"
-  ],
-  "0039": [
-    "/exercises/0039-relaxation.svg",
-    "/exercises/0039-tension.svg"
-  ],
-  "0041": [
-    "/exercises/0041-relaxation.svg",
-    "/exercises/0041-tension.svg"
-  ],
-  "0042": [
-    "/exercises/0042-relaxation.svg",
-    "/exercises/0042-tension.svg"
-  ],
-  "0043": [
-    "/exercises/0043-relaxation.svg",
-    "/exercises/0043-tension.svg"
-  ],
-  "0044": [
-    "/exercises/0044-relaxation.svg",
-    "/exercises/0044-tension.svg"
-  ],
-  "0045": [
-    "/exercises/0045-relaxation.svg",
-    "/exercises/0045-tension.svg"
-  ],
-  "0046": [
-    "/exercises/0046-relaxation.svg",
-    "/exercises/0046-tension.svg"
-  ],
-  "0048": [
-    "/exercises/0048-relaxation.svg",
-    "/exercises/0048-tension.svg"
-  ],
-  "0049": [
-    "/exercises/0049-relaxation.svg",
-    "/exercises/0049-tension.svg"
-  ],
-  "0050": [
-    "/exercises/0050-relaxation.svg",
-    "/exercises/0050-tension.svg"
-  ],
-  "0051": [
-    "/exercises/0051-relaxation.svg",
-    "/exercises/0051-tension.svg"
-  ],
-  "0052": [
-    "/exercises/0052-relaxation.svg",
-    "/exercises/0052-tension.svg"
-  ],
-  "0053": [
-    "/exercises/0053-relaxation.svg",
-    "/exercises/0053-tension.svg"
-  ],
-  "0054": [
-    "/exercises/0054-relaxation.svg",
-    "/exercises/0054-tension.svg"
-  ],
-  "0055": [
-    "/exercises/0055-relaxation.svg",
-    "/exercises/0055-tension.svg"
-  ],
-  "0056": [
-    "/exercises/0056-relaxation.svg",
-    "/exercises/0056-tension.svg"
-  ],
-  "0057": [
-    "/exercises/0057-relaxation.svg",
-    "/exercises/0057-tension.svg"
-  ],
-  "0058": [
-    "/exercises/0058-relaxation.svg",
-    "/exercises/0058-tension.svg"
-  ],
-  "0059": [
-    "/exercises/0059-relaxation.svg",
-    "/exercises/0059-tension.svg"
-  ],
-  "0060": [
-    "/exercises/0060-relaxation.svg",
-    "/exercises/0060-tension.svg"
-  ],
-  "0061": [
-    "/exercises/0061-relaxation.svg",
-    "/exercises/0061-tension.svg"
-  ],
-  "0062": [
-    "/exercises/0062-relaxation.svg",
-    "/exercises/0062-tension.svg"
-  ],
-  "0063": [
-    "/exercises/0063-relaxation.svg",
-    "/exercises/0063-tension.svg"
-  ],
-  "0064": [
-    "/exercises/0064-relaxation.svg",
-    "/exercises/0064-tension.svg"
-  ],
-  "0066": [
-    "/exercises/0066-relaxation.svg",
-    "/exercises/0066-tension.svg"
-  ],
-  "0067": [
-    "/exercises/0067-relaxation.svg",
-    "/exercises/0067-tension.svg"
-  ],
-  "0068": [
-    "/exercises/0068-relaxation.svg",
-    "/exercises/0068-tension.svg"
-  ],
-  "0069": [
-    "/exercises/0069-relaxation.svg",
-    "/exercises/0069-tension.svg"
-  ],
-  "0070": [
-    "/exercises/0070-relaxation.svg",
-    "/exercises/0070-tension.svg"
-  ],
-  "0071": [
-    "/exercises/0071-relaxation.svg",
-    "/exercises/0071-tension.svg"
-  ],
-  "0072": [
-    "/exercises/0072-relaxation.svg",
-    "/exercises/0072-tension.svg"
-  ],
-  "0075": [
-    "/exercises/0075-relaxation.svg",
-    "/exercises/0075-tension.svg"
-  ],
-  "0076": [
-    "/exercises/0076-relaxation.svg",
-    "/exercises/0076-tension.svg"
-  ],
-  "0077": [
-    "/exercises/0077-relaxation.svg",
-    "/exercises/0077-tension.svg"
-  ],
-  "0078": [
-    "/exercises/0078-relaxation.svg",
-    "/exercises/0078-tension.svg"
-  ],
-  "0079": [
-    "/exercises/0079-relaxation.svg",
-    "/exercises/0079-tension.svg"
-  ],
-  "0080": [
-    "/exercises/0080-relaxation.svg",
-    "/exercises/0080-tension.svg"
-  ],
-  "0081": [
-    "/exercises/0081-relaxation.svg",
-    "/exercises/0081-tension.svg"
-  ],
-  "0082": [
-    "/exercises/0082-relaxation.svg",
-    "/exercises/0082-tension.svg"
-  ],
-  "0083": [
-    "/exercises/0083-relaxation.svg",
-    "/exercises/0083-tension.svg"
-  ],
-  "0085": [
-    "/exercises/0085-relaxation.svg",
-    "/exercises/0085-tension.svg"
-  ],
-  "0086": [
-    "/exercises/0086-relaxation.svg",
-    "/exercises/0086-tension.svg"
-  ],
-  "0087": [
-    "/exercises/0087-relaxation.svg",
-    "/exercises/0087-tension.svg"
-  ],
-  "0090": [
-    "/exercises/0090-relaxation.svg",
-    "/exercises/0090-tension.svg"
-  ],
-  "0091": [
-    "/exercises/0091-relaxation.svg",
-    "/exercises/0091-tension.svg"
-  ],
-  "0092": [
-    "/exercises/0092-relaxation.svg",
-    "/exercises/0092-tension.svg"
-  ],
-  "0093": [
-    "/exercises/0093-relaxation.svg",
-    "/exercises/0093-tension.svg"
-  ],
-  "0094": [
-    "/exercises/0094-relaxation.svg",
-    "/exercises/0094-tension.svg"
-  ],
-  "0095": [
-    "/exercises/0095-relaxation.svg",
-    "/exercises/0095-tension.svg"
-  ],
-  "0096": [
-    "/exercises/0096-relaxation.svg",
-    "/exercises/0096-tension.svg"
-  ],
-  "0098": [
-    "/exercises/0098-relaxation.svg",
-    "/exercises/0098-tension.svg"
-  ],
-  "0099": [
-    "/exercises/0099-relaxation.svg",
-    "/exercises/0099-tension.svg"
-  ],
-  "0100": [
-    "/exercises/0100-relaxation.svg",
-    "/exercises/0100-tension.svg"
-  ],
-  "0101": [
-    "/exercises/0101-relaxation.svg",
-    "/exercises/0101-tension.svg"
-  ],
-  "0102": [
-    "/exercises/0102-relaxation.svg",
-    "/exercises/0102-tension.svg"
-  ],
-  "0103": [
-    "/exercises/0103-relaxation.svg",
-    "/exercises/0103-tension.svg"
-  ],
-  "0104": [
-    "/exercises/0104-relaxation.svg",
-    "/exercises/0104-tension.svg"
-  ],
-  "0105": [
-    "/exercises/0105-relaxation.svg",
-    "/exercises/0105-tension.svg"
-  ],
-  "0107": [
-    "/exercises/0107-relaxation.svg",
-    "/exercises/0107-tension.svg"
-  ],
-  "0109": [
-    "/exercises/0109-relaxation.svg",
-    "/exercises/0109-tension.svg"
-  ],
-  "0111": [
-    "/exercises/0111-relaxation.svg",
-    "/exercises/0111-tension.svg"
-  ],
-  "0112": [
-    "/exercises/0112-relaxation.svg",
-    "/exercises/0112-tension.svg"
-  ],
-  "0113": [
-    "/exercises/0113-relaxation.svg",
-    "/exercises/0113-tension.svg"
-  ],
-  "0114": [
-    "/exercises/0114-relaxation.svg",
-    "/exercises/0114-tension.svg"
-  ],
-  "0115": [
-    "/exercises/0115-relaxation.svg",
-    "/exercises/0115-tension.svg"
-  ],
-  "0116": [
-    "/exercises/0116-relaxation.svg",
-    "/exercises/0116-tension.svg"
-  ],
-  "0117": [
-    "/exercises/0117-relaxation.svg",
-    "/exercises/0117-tension.svg"
-  ],
-  "0118": [
-    "/exercises/0118-relaxation.svg",
-    "/exercises/0118-tension.svg"
-  ],
-  "0119": [
-    "/exercises/0119-relaxation.svg",
-    "/exercises/0119-tension.svg"
-  ],
-  "0120": [
-    "/exercises/0120-relaxation.svg",
-    "/exercises/0120-tension.svg"
-  ],
-  "0121": [
-    "/exercises/0121-relaxation.svg",
-    "/exercises/0121-tension.svg"
-  ],
-  "0122": [
-    "/exercises/0122-relaxation.svg",
-    "/exercises/0122-tension.svg"
-  ],
-  "0123": [
-    "/exercises/0123-relaxation.svg",
-    "/exercises/0123-tension.svg"
-  ],
-  "0124": [
-    "/exercises/0124-relaxation.svg",
-    "/exercises/0124-tension.svg"
-  ],
-  "0125": [
-    "/exercises/0125-relaxation.svg",
-    "/exercises/0125-tension.svg"
-  ],
-  "0126": [
-    "/exercises/0126-relaxation.svg",
-    "/exercises/0126-tension.svg"
-  ],
-  "0127": [
-    "/exercises/0127-relaxation.svg",
-    "/exercises/0127-tension.svg"
-  ],
-  "0128": [
-    "/exercises/0128-relaxation.svg",
-    "/exercises/0128-tension.svg"
-  ],
-  "0129": [
-    "/exercises/0129-relaxation.svg",
-    "/exercises/0129-tension.svg"
-  ],
-  "0130": [
-    "/exercises/0130-relaxation.svg",
-    "/exercises/0130-tension.svg"
-  ],
-  "0131": [
-    "/exercises/0131-relaxation.svg",
-    "/exercises/0131-tension.svg"
-  ],
-  "0132": [
-    "/exercises/0132-relaxation.svg",
-    "/exercises/0132-tension.svg"
-  ],
-  "0133": [
-    "/exercises/0133-relaxation.svg",
-    "/exercises/0133-tension.svg"
-  ],
-  "0134": [
-    "/exercises/0134-relaxation.svg",
-    "/exercises/0134-tension.svg"
-  ],
-  "0135": [
-    "/exercises/0135-relaxation.svg",
-    "/exercises/0135-tension.svg"
-  ],
-  "0136": [
-    "/exercises/0136-relaxation.svg",
-    "/exercises/0136-tension.svg"
-  ],
-  "0137": [
-    "/exercises/0137-relaxation.svg",
-    "/exercises/0137-tension.svg"
-  ],
-  "0138": [
-    "/exercises/0138-relaxation.svg",
-    "/exercises/0138-tension.svg"
-  ],
-  "0139": [
-    "/exercises/0139-relaxation.svg",
-    "/exercises/0139-tension.svg"
-  ],
-  "0140": [
-    "/exercises/0140-relaxation.svg",
-    "/exercises/0140-tension.svg"
-  ],
-  "0141": [
-    "/exercises/0141-relaxation.svg",
-    "/exercises/0141-tension.svg"
-  ],
-  "0142": [
-    "/exercises/0142-relaxation.svg",
-    "/exercises/0142-tension.svg"
-  ],
-  "0143": [
-    "/exercises/0143-relaxation.svg",
-    "/exercises/0143-tension.svg"
-  ],
-  "0144": [
-    "/exercises/0144-relaxation.svg",
-    "/exercises/0144-tension.svg"
-  ],
-  "0145": [
-    "/exercises/0145-relaxation.svg",
-    "/exercises/0145-tension.svg"
-  ],
-  "0146": [
-    "/exercises/0146-relaxation.svg",
-    "/exercises/0146-tension.svg"
-  ],
-  "0147": [
-    "/exercises/0147-relaxation.svg",
-    "/exercises/0147-tension.svg"
-  ],
-  "0148": [
-    "/exercises/0148-relaxation.svg",
-    "/exercises/0148-tension.svg"
-  ],
-  "0150": [
-    "/exercises/0150-relaxation.svg",
-    "/exercises/0150-tension.svg"
-  ],
-  "0151": [
-    "/exercises/0151-relaxation.svg",
-    "/exercises/0151-tension.svg"
-  ],
-  "0152": [
-    "/exercises/0152-relaxation.svg",
-    "/exercises/0152-tension.svg"
-  ],
-  "0154": [
-    "/exercises/0154-relaxation.svg",
-    "/exercises/0154-tension.svg"
-  ],
-  "0155": [
-    "/exercises/0155-relaxation.svg",
-    "/exercises/0155-tension.svg"
-  ],
-  "0156": [
-    "/exercises/0156-relaxation.svg",
-    "/exercises/0156-tension.svg"
-  ],
-  "0157": [
-    "/exercises/0157-relaxation.svg",
-    "/exercises/0157-tension.svg"
-  ],
-  "0158": [
-    "/exercises/0158-relaxation.svg",
-    "/exercises/0158-tension.svg"
-  ],
-  "0160": [
-    "/exercises/0160-relaxation.svg",
-    "/exercises/0160-tension.svg"
-  ],
-  "0161": [
-    "/exercises/0161-relaxation.svg",
-    "/exercises/0161-tension.svg"
-  ],
-  "0162": [
-    "/exercises/0162-relaxation.svg",
-    "/exercises/0162-tension.svg"
-  ],
-  "0163": [
-    "/exercises/0163-relaxation.svg",
-    "/exercises/0163-tension.svg"
-  ],
-  "0164": [
-    "/exercises/0164-relaxation.svg",
-    "/exercises/0164-tension.svg"
-  ],
-  "0165": [
-    "/exercises/0165-relaxation.svg",
-    "/exercises/0165-tension.svg"
-  ],
-  "0166": [
-    "/exercises/0166-relaxation.svg",
-    "/exercises/0166-tension.svg"
-  ],
-  "0168": [
-    "/exercises/0168-relaxation.svg",
-    "/exercises/0168-tension.svg"
-  ],
-  "0169": [
-    "/exercises/0169-relaxation.svg",
-    "/exercises/0169-tension.svg"
-  ],
-  "0170": [
-    "/exercises/0170-relaxation.svg",
-    "/exercises/0170-tension.svg"
-  ],
-  "0171": [
-    "/exercises/0171-relaxation.svg",
-    "/exercises/0171-tension.svg"
-  ],
-  "0172": [
-    "/exercises/0172-relaxation.svg",
-    "/exercises/0172-tension.svg"
-  ],
-  "0173": [
-    "/exercises/0173-relaxation.svg",
-    "/exercises/0173-tension.svg"
-  ],
-  "0174": [
-    "/exercises/0174-relaxation.svg",
-    "/exercises/0174-tension.svg"
-  ],
-  "0175": [
-    "/exercises/0175-relaxation.svg",
-    "/exercises/0175-tension.svg"
-  ],
-  "0176": [
-    "/exercises/0176-relaxation.svg",
-    "/exercises/0176-tension.svg"
-  ],
-  "0177": [
-    "/exercises/0177-relaxation.svg",
-    "/exercises/0177-tension.svg"
-  ],
-  "0178": [
-    "/exercises/0178-relaxation.svg",
-    "/exercises/0178-tension.svg"
-  ],
-  "0179": [
-    "/exercises/0179-relaxation.svg",
-    "/exercises/0179-tension.svg"
-  ],
-  "0180": [
-    "/exercises/0180-relaxation.svg",
-    "/exercises/0180-tension.svg"
-  ],
-  "0181": [
-    "/exercises/0181-relaxation.svg",
-    "/exercises/0181-tension.svg"
-  ],
-  "0182": [
-    "/exercises/0182-relaxation.svg",
-    "/exercises/0182-tension.svg"
-  ],
-  "0183": [
-    "/exercises/0183-relaxation.svg",
-    "/exercises/0183-tension.svg"
-  ],
-  "0184": [
-    "/exercises/0184-relaxation.svg",
-    "/exercises/0184-tension.svg"
-  ],
-  "0185": [
-    "/exercises/0185-relaxation.svg",
-    "/exercises/0185-tension.svg"
-  ],
-  "0186": [
-    "/exercises/0186-relaxation.svg",
-    "/exercises/0186-tension.svg"
-  ],
-  "0187": [
-    "/exercises/0187-relaxation.svg",
-    "/exercises/0187-tension.svg"
-  ],
-  "0188": [
-    "/exercises/0188-relaxation.svg",
-    "/exercises/0188-tension.svg"
-  ],
-  "0189": [
-    "/exercises/0189-relaxation.svg",
-    "/exercises/0189-tension.svg"
-  ],
-  "0190": [
-    "/exercises/0190-relaxation.svg",
-    "/exercises/0190-tension.svg"
-  ],
-  "0191": [
-    "/exercises/0191-relaxation.svg",
-    "/exercises/0191-tension.svg"
-  ],
-  "0192": [
-    "/exercises/0192-relaxation.svg",
-    "/exercises/0192-tension.svg"
-  ],
-  "0193": [
-    "/exercises/0193-relaxation.svg",
-    "/exercises/0193-tension.svg"
-  ],
-  "0194": [
-    "/exercises/0194-relaxation.svg",
-    "/exercises/0194-tension.svg"
-  ],
-  "0195": [
-    "/exercises/0195-relaxation.svg",
-    "/exercises/0195-tension.svg"
-  ],
-  "0196": [
-    "/exercises/0196-relaxation.svg",
-    "/exercises/0196-tension.svg"
-  ],
-  "0197": [
-    "/exercises/0197-relaxation.svg",
-    "/exercises/0197-tension.svg"
-  ],
-  "0198": [
-    "/exercises/0198-relaxation.svg",
-    "/exercises/0198-tension.svg"
-  ],
-  "0199": [
-    "/exercises/0199-relaxation.svg",
-    "/exercises/0199-tension.svg"
-  ],
-  "0201": [
-    "/exercises/0201-relaxation.svg",
-    "/exercises/0201-tension.svg"
-  ],
-  "0202": [
-    "/exercises/0202-relaxation.svg",
-    "/exercises/0202-tension.svg"
-  ],
-  "0203": [
-    "/exercises/0203-relaxation.svg",
-    "/exercises/0203-tension.svg"
-  ],
-  "0204": [
-    "/exercises/0204-relaxation.svg",
-    "/exercises/0204-tension.svg"
-  ],
-  "0205": [
-    "/exercises/0205-relaxation.svg",
-    "/exercises/0205-tension.svg"
-  ],
-  "0206": [
-    "/exercises/0206-relaxation.svg",
-    "/exercises/0206-tension.svg"
-  ],
-  "0207": [
-    "/exercises/0207-relaxation.svg",
-    "/exercises/0207-tension.svg"
-  ],
-  "0208": [
-    "/exercises/0208-relaxation.svg",
-    "/exercises/0208-tension.svg"
-  ],
-  "0209": [
-    "/exercises/0209-relaxation.svg",
-    "/exercises/0209-tension.svg"
-  ],
-  "0210": [
-    "/exercises/0210-relaxation.svg",
-    "/exercises/0210-tension.svg"
-  ],
-  "0211": [
-    "/exercises/0211-relaxation.svg",
-    "/exercises/0211-tension.svg"
-  ],
-  "0212": [
-    "/exercises/0212-relaxation.svg",
-    "/exercises/0212-tension.svg"
-  ],
-  "0213": [
-    "/exercises/0213-relaxation.svg",
-    "/exercises/0213-tension.svg"
-  ],
-  "0214": [
-    "/exercises/0214-relaxation.svg",
-    "/exercises/0214-tension.svg"
-  ],
-  "0215": [
-    "/exercises/0215-relaxation.svg",
-    "/exercises/0215-tension.svg"
-  ],
-  "0216": [
-    "/exercises/0216-relaxation.svg",
-    "/exercises/0216-tension.svg"
-  ],
-  "0217": [
-    "/exercises/0217-relaxation.svg",
-    "/exercises/0217-tension.svg"
-  ],
-  "0218": [
-    "/exercises/0218-relaxation.svg",
-    "/exercises/0218-tension.svg"
-  ],
-  "0219": [
-    "/exercises/0219-relaxation.svg",
-    "/exercises/0219-tension.svg"
-  ],
-  "0220": [
-    "/exercises/0220-relaxation.svg",
-    "/exercises/0220-tension.svg"
-  ],
-  "0221": [
-    "/exercises/0221-relaxation.svg",
-    "/exercises/0221-tension.svg"
-  ],
-  "0222": [
-    "/exercises/0222-relaxation.svg",
-    "/exercises/0222-tension.svg"
-  ],
-  "0223": [
-    "/exercises/0223-relaxation.svg",
-    "/exercises/0223-tension.svg"
-  ],
-  "0224": [
-    "/exercises/0224-relaxation.svg",
-    "/exercises/0224-tension.svg"
-  ],
-  "0225": [
-    "/exercises/0225-relaxation.svg",
-    "/exercises/0225-tension.svg"
-  ],
-  "0226": [
-    "/exercises/0226-relaxation.svg",
-    "/exercises/0226-tension.svg"
-  ],
-  "0227": [
-    "/exercises/0227-relaxation.svg",
-    "/exercises/0227-tension.svg"
-  ],
-  "0228": [
-    "/exercises/0228-relaxation.svg",
-    "/exercises/0228-tension.svg"
-  ],
-  "0229": [
-    "/exercises/0229-relaxation.svg",
-    "/exercises/0229-tension.svg"
-  ],
-  "0231": [
-    "/exercises/0231-relaxation.svg",
-    "/exercises/0231-tension.svg"
-  ],
-  "0232": [
-    "/exercises/0232-relaxation.svg",
-    "/exercises/0232-tension.svg"
-  ],
-  "0233": [
-    "/exercises/0233-relaxation.svg",
-    "/exercises/0233-tension.svg"
-  ],
-  "0234": [
-    "/exercises/0234-relaxation.svg",
-    "/exercises/0234-tension.svg"
-  ],
-  "0235": [
-    "/exercises/0235-relaxation.svg",
-    "/exercises/0235-tension.svg"
-  ],
-  "0236": [
-    "/exercises/0236-relaxation.svg",
-    "/exercises/0236-tension.svg"
-  ],
-  "0237": [
-    "/exercises/0237-relaxation.svg",
-    "/exercises/0237-tension.svg"
-  ],
-  "0238": [
-    "/exercises/0238-relaxation.svg",
-    "/exercises/0238-tension.svg"
-  ],
-  "0239": [
-    "/exercises/0239-relaxation.svg",
-    "/exercises/0239-tension.svg"
-  ],
-  "0240": [
-    "/exercises/0240-relaxation.svg",
-    "/exercises/0240-tension.svg"
-  ],
-  "0241": [
-    "/exercises/0241-relaxation.svg",
-    "/exercises/0241-tension.svg"
-  ],
-  "0242": [
-    "/exercises/0242-relaxation.svg",
-    "/exercises/0242-tension.svg"
-  ],
-  "0243": [
-    "/exercises/0243-relaxation.svg",
-    "/exercises/0243-tension.svg"
-  ],
-  "0244": [
-    "/exercises/0244-tension.svg"
-  ],
-  "0245": [
-    "/exercises/0245-relaxation.svg",
-    "/exercises/0245-tension.svg"
-  ],
-  "0246": [
-    "/exercises/0246-relaxation.svg",
-    "/exercises/0246-tension.svg"
-  ],
-  "0247": [
-    "/exercises/0247-relaxation.svg",
-    "/exercises/0247-tension.svg"
-  ],
-  "0248": [
-    "/exercises/0248-relaxation.svg",
-    "/exercises/0248-tension.svg"
-  ],
-  "0249": [
-    "/exercises/0249-relaxation.svg",
-    "/exercises/0249-tension.svg"
-  ],
-  "0250": [
-    "/exercises/0250-relaxation.svg",
-    "/exercises/0250-tension.svg"
-  ],
-  "0251": [
-    "/exercises/0251-relaxation.svg",
-    "/exercises/0251-tension.svg"
-  ],
-  "0252": [
-    "/exercises/0252-relaxation.svg",
-    "/exercises/0252-tension.svg"
-  ],
-  "0253": [
-    "/exercises/0253-relaxation.svg",
-    "/exercises/0253-tension.svg"
-  ],
-  "0254": [
-    "/exercises/0254-relaxation.svg",
-    "/exercises/0254-tension.svg"
-  ],
-  "0255": [
-    "/exercises/0255-relaxation.svg",
-    "/exercises/0255-tension.svg"
-  ],
-  "0256": [
-    "/exercises/0256-relaxation.svg",
-    "/exercises/0256-tension.svg"
-  ],
-  "0257": [
-    "/exercises/0257-relaxation.svg",
-    "/exercises/0257-tension.svg"
-  ],
-  "0258": [
-    "/exercises/0258-relaxation.svg",
-    "/exercises/0258-tension.svg"
-  ],
-  "0259": [
-    "/exercises/0259-relaxation.svg",
-    "/exercises/0259-tension.svg"
-  ],
-  "0260": [
-    "/exercises/0260-relaxation.svg",
-    "/exercises/0260-tension.svg"
-  ],
-  "0261": [
-    "/exercises/0261-relaxation.svg",
-    "/exercises/0261-tension.svg"
-  ],
-  "0262": [
-    "/exercises/0262-relaxation.svg",
-    "/exercises/0262-tension.svg"
-  ],
-  "0263": [
-    "/exercises/0263-relaxation.svg",
-    "/exercises/0263-tension.svg"
-  ],
-  "0264": [
-    "/exercises/0264-relaxation.svg",
-    "/exercises/0264-tension.svg"
-  ],
-  "0265": [
-    "/exercises/0265-relaxation.svg",
-    "/exercises/0265-tension.svg"
-  ],
-  "0266": [
-    "/exercises/0266-relaxation.svg",
-    "/exercises/0266-tension.svg"
-  ],
-  "0267": [
-    "/exercises/0267-relaxation.svg",
-    "/exercises/0267-tension.svg"
-  ],
-  "0268": [
-    "/exercises/0268-relaxation.svg",
-    "/exercises/0268-tension.svg"
-  ],
-  "0269": [
-    "/exercises/0269-relaxation.svg",
-    "/exercises/0269-tension.svg"
-  ],
-  "0270": [
-    "/exercises/0270-relaxation.svg",
-    "/exercises/0270-tension.svg"
-  ],
-  "0272": [
-    "/exercises/0272-relaxation.svg",
-    "/exercises/0272-tension.svg"
-  ],
-  "0273": [
-    "/exercises/0273-relaxation.svg",
-    "/exercises/0273-tension.svg"
-  ],
-  "0274": [
-    "/exercises/0274-relaxation.svg",
-    "/exercises/0274-tension.svg"
-  ],
-  "0275": [
-    "/exercises/0275-relaxation.svg",
-    "/exercises/0275-tension.svg"
-  ],
-  "0276": [
-    "/exercises/0276-relaxation.svg",
-    "/exercises/0276-tension.svg"
-  ],
-  "0277": [
-    "/exercises/0277-relaxation.svg",
-    "/exercises/0277-tension.svg"
-  ],
-  "0278": [
-    "/exercises/0278-relaxation.svg",
-    "/exercises/0278-tension.svg"
-  ],
-  "0279": [
-    "/exercises/0279-relaxation.svg",
-    "/exercises/0279-tension.svg"
-  ],
-  "0280": [
-    "/exercises/0280-relaxation.svg",
-    "/exercises/0280-tension.svg"
-  ],
-  "0281": [
-    "/exercises/0281-relaxation.svg",
-    "/exercises/0281-tension.svg"
-  ],
-  "0282": [
-    "/exercises/0282-relaxation.svg",
-    "/exercises/0282-tension.svg"
-  ],
-  "0284": [
-    "/exercises/0284-relaxation.svg",
-    "/exercises/0284-tension.svg"
-  ],
-  "0285": [
-    "/exercises/0285-relaxation.svg",
-    "/exercises/0285-tension.svg"
-  ],
-  "0286": [
-    "/exercises/0286-relaxation.svg",
-    "/exercises/0286-tension.svg"
-  ],
-  "0287": [
-    "/exercises/0287-relaxation.svg",
-    "/exercises/0287-tension.svg"
-  ],
-  "0288": [
-    "/exercises/0288-relaxation.svg",
-    "/exercises/0288-tension.svg"
-  ],
-  "0289": [
-    "/exercises/0289-relaxation.svg",
-    "/exercises/0289-tension.svg"
-  ],
-  "0290": [
-    "/exercises/0290-relaxation.svg",
-    "/exercises/0290-tension.svg"
-  ],
-  "0291": [
-    "/exercises/0291-relaxation.svg",
-    "/exercises/0291-tension.svg"
-  ],
-  "0292": [
-    "/exercises/0292-relaxation.svg",
-    "/exercises/0292-tension.svg"
-  ],
-  "0293": [
-    "/exercises/0293-relaxation.svg",
-    "/exercises/0293-tension.svg"
-  ],
-  "0294": [
-    "/exercises/0294-relaxation.svg",
-    "/exercises/0294-tension.svg"
-  ],
-  "0295": [
-    "/exercises/0295-relaxation.svg",
-    "/exercises/0295-tension.svg"
-  ],
-  "0296": [
-    "/exercises/0296-relaxation.svg",
-    "/exercises/0296-tension.svg"
-  ]
+	"0001": ["/exercises/0001-relaxation.svg", "/exercises/0001-tension.svg"],
+	"0002": ["/exercises/0002-relaxation.svg", "/exercises/0002-tension.svg"],
+	"0004": ["/exercises/0004-relaxation.svg", "/exercises/0004-tension.svg"],
+	"0005": ["/exercises/0005-relaxation.svg", "/exercises/0005-tension.svg"],
+	"0008": ["/exercises/0008-relaxation.svg", "/exercises/0008-tension.svg"],
+	"0009": ["/exercises/0009-relaxation.svg", "/exercises/0009-tension.svg"],
+	"0013": ["/exercises/0013-relaxation.svg", "/exercises/0013-tension.svg"],
+	"0014": ["/exercises/0014-relaxation.svg", "/exercises/0014-tension.svg"],
+	"0015": ["/exercises/0015-relaxation.svg", "/exercises/0015-tension.svg"],
+	"0016": ["/exercises/0016-relaxation.svg", "/exercises/0016-tension.svg"],
+	"0017": ["/exercises/0017-relaxation.svg", "/exercises/0017-tension.svg"],
+	"0018": ["/exercises/0018-relaxation.svg", "/exercises/0018-tension.svg"],
+	"0019": ["/exercises/0019-relaxation.svg", "/exercises/0019-tension.svg"],
+	"0020": ["/exercises/0020-relaxation.svg", "/exercises/0020-tension.svg"],
+	"0021": ["/exercises/0021-relaxation.svg", "/exercises/0021-tension.svg"],
+	"0022": ["/exercises/0022-relaxation.svg", "/exercises/0022-tension.svg"],
+	"0023": ["/exercises/0023-relaxation.svg", "/exercises/0023-tension.svg"],
+	"0024": ["/exercises/0024-relaxation.svg", "/exercises/0024-tension.svg"],
+	"0025": ["/exercises/0025-relaxation.svg", "/exercises/0025-tension.svg"],
+	"0026": ["/exercises/0026-relaxation.svg", "/exercises/0026-tension.svg"],
+	"0027": ["/exercises/0027-relaxation.svg", "/exercises/0027-tension.svg"],
+	"0028": ["/exercises/0028-relaxation.svg", "/exercises/0028-tension.svg"],
+	"0029": ["/exercises/0029-relaxation.svg", "/exercises/0029-tension.svg"],
+	"0030": ["/exercises/0030-relaxation.svg", "/exercises/0030-tension.svg"],
+	"0031": ["/exercises/0031-relaxation.svg", "/exercises/0031-tension.svg"],
+	"0032": ["/exercises/0032-relaxation.svg", "/exercises/0032-tension.svg"],
+	"0033": ["/exercises/0033-relaxation.svg", "/exercises/0033-tension.svg"],
+	"0034": ["/exercises/0034-relaxation.svg", "/exercises/0034-tension.svg"],
+	"0035": ["/exercises/0035-relaxation.svg", "/exercises/0035-tension.svg"],
+	"0037": ["/exercises/0037-relaxation.svg", "/exercises/0037-tension.svg"],
+	"0038": ["/exercises/0038-relaxation.svg", "/exercises/0038-tension.svg"],
+	"0039": ["/exercises/0039-relaxation.svg", "/exercises/0039-tension.svg"],
+	"0041": ["/exercises/0041-relaxation.svg", "/exercises/0041-tension.svg"],
+	"0042": ["/exercises/0042-relaxation.svg", "/exercises/0042-tension.svg"],
+	"0043": ["/exercises/0043-relaxation.svg", "/exercises/0043-tension.svg"],
+	"0044": ["/exercises/0044-relaxation.svg", "/exercises/0044-tension.svg"],
+	"0045": ["/exercises/0045-relaxation.svg", "/exercises/0045-tension.svg"],
+	"0046": ["/exercises/0046-relaxation.svg", "/exercises/0046-tension.svg"],
+	"0048": ["/exercises/0048-relaxation.svg", "/exercises/0048-tension.svg"],
+	"0049": ["/exercises/0049-relaxation.svg", "/exercises/0049-tension.svg"],
+	"0050": ["/exercises/0050-relaxation.svg", "/exercises/0050-tension.svg"],
+	"0051": ["/exercises/0051-relaxation.svg", "/exercises/0051-tension.svg"],
+	"0052": ["/exercises/0052-relaxation.svg", "/exercises/0052-tension.svg"],
+	"0053": ["/exercises/0053-relaxation.svg", "/exercises/0053-tension.svg"],
+	"0054": ["/exercises/0054-relaxation.svg", "/exercises/0054-tension.svg"],
+	"0055": ["/exercises/0055-relaxation.svg", "/exercises/0055-tension.svg"],
+	"0056": ["/exercises/0056-relaxation.svg", "/exercises/0056-tension.svg"],
+	"0057": ["/exercises/0057-relaxation.svg", "/exercises/0057-tension.svg"],
+	"0058": ["/exercises/0058-relaxation.svg", "/exercises/0058-tension.svg"],
+	"0059": ["/exercises/0059-relaxation.svg", "/exercises/0059-tension.svg"],
+	"0060": ["/exercises/0060-relaxation.svg", "/exercises/0060-tension.svg"],
+	"0061": ["/exercises/0061-relaxation.svg", "/exercises/0061-tension.svg"],
+	"0062": ["/exercises/0062-relaxation.svg", "/exercises/0062-tension.svg"],
+	"0063": ["/exercises/0063-relaxation.svg", "/exercises/0063-tension.svg"],
+	"0064": ["/exercises/0064-relaxation.svg", "/exercises/0064-tension.svg"],
+	"0066": ["/exercises/0066-relaxation.svg", "/exercises/0066-tension.svg"],
+	"0067": ["/exercises/0067-relaxation.svg", "/exercises/0067-tension.svg"],
+	"0068": ["/exercises/0068-relaxation.svg", "/exercises/0068-tension.svg"],
+	"0069": ["/exercises/0069-relaxation.svg", "/exercises/0069-tension.svg"],
+	"0070": ["/exercises/0070-relaxation.svg", "/exercises/0070-tension.svg"],
+	"0071": ["/exercises/0071-relaxation.svg", "/exercises/0071-tension.svg"],
+	"0072": ["/exercises/0072-relaxation.svg", "/exercises/0072-tension.svg"],
+	"0075": ["/exercises/0075-relaxation.svg", "/exercises/0075-tension.svg"],
+	"0076": ["/exercises/0076-relaxation.svg", "/exercises/0076-tension.svg"],
+	"0077": ["/exercises/0077-relaxation.svg", "/exercises/0077-tension.svg"],
+	"0078": ["/exercises/0078-relaxation.svg", "/exercises/0078-tension.svg"],
+	"0079": ["/exercises/0079-relaxation.svg", "/exercises/0079-tension.svg"],
+	"0080": ["/exercises/0080-relaxation.svg", "/exercises/0080-tension.svg"],
+	"0081": ["/exercises/0081-relaxation.svg", "/exercises/0081-tension.svg"],
+	"0082": ["/exercises/0082-relaxation.svg", "/exercises/0082-tension.svg"],
+	"0083": ["/exercises/0083-relaxation.svg", "/exercises/0083-tension.svg"],
+	"0085": ["/exercises/0085-relaxation.svg", "/exercises/0085-tension.svg"],
+	"0086": ["/exercises/0086-relaxation.svg", "/exercises/0086-tension.svg"],
+	"0087": ["/exercises/0087-relaxation.svg", "/exercises/0087-tension.svg"],
+	"0090": ["/exercises/0090-relaxation.svg", "/exercises/0090-tension.svg"],
+	"0091": ["/exercises/0091-relaxation.svg", "/exercises/0091-tension.svg"],
+	"0092": ["/exercises/0092-relaxation.svg", "/exercises/0092-tension.svg"],
+	"0093": ["/exercises/0093-relaxation.svg", "/exercises/0093-tension.svg"],
+	"0094": ["/exercises/0094-relaxation.svg", "/exercises/0094-tension.svg"],
+	"0095": ["/exercises/0095-relaxation.svg", "/exercises/0095-tension.svg"],
+	"0096": ["/exercises/0096-relaxation.svg", "/exercises/0096-tension.svg"],
+	"0098": ["/exercises/0098-relaxation.svg", "/exercises/0098-tension.svg"],
+	"0099": ["/exercises/0099-relaxation.svg", "/exercises/0099-tension.svg"],
+	"0100": ["/exercises/0100-relaxation.svg", "/exercises/0100-tension.svg"],
+	"0101": ["/exercises/0101-relaxation.svg", "/exercises/0101-tension.svg"],
+	"0102": ["/exercises/0102-relaxation.svg", "/exercises/0102-tension.svg"],
+	"0103": ["/exercises/0103-relaxation.svg", "/exercises/0103-tension.svg"],
+	"0104": ["/exercises/0104-relaxation.svg", "/exercises/0104-tension.svg"],
+	"0105": ["/exercises/0105-relaxation.svg", "/exercises/0105-tension.svg"],
+	"0107": ["/exercises/0107-relaxation.svg", "/exercises/0107-tension.svg"],
+	"0109": ["/exercises/0109-relaxation.svg", "/exercises/0109-tension.svg"],
+	"0111": ["/exercises/0111-relaxation.svg", "/exercises/0111-tension.svg"],
+	"0112": ["/exercises/0112-relaxation.svg", "/exercises/0112-tension.svg"],
+	"0113": ["/exercises/0113-relaxation.svg", "/exercises/0113-tension.svg"],
+	"0114": ["/exercises/0114-relaxation.svg", "/exercises/0114-tension.svg"],
+	"0115": ["/exercises/0115-relaxation.svg", "/exercises/0115-tension.svg"],
+	"0116": ["/exercises/0116-relaxation.svg", "/exercises/0116-tension.svg"],
+	"0117": ["/exercises/0117-relaxation.svg", "/exercises/0117-tension.svg"],
+	"0118": ["/exercises/0118-relaxation.svg", "/exercises/0118-tension.svg"],
+	"0119": ["/exercises/0119-relaxation.svg", "/exercises/0119-tension.svg"],
+	"0120": ["/exercises/0120-relaxation.svg", "/exercises/0120-tension.svg"],
+	"0121": ["/exercises/0121-relaxation.svg", "/exercises/0121-tension.svg"],
+	"0122": ["/exercises/0122-relaxation.svg", "/exercises/0122-tension.svg"],
+	"0123": ["/exercises/0123-relaxation.svg", "/exercises/0123-tension.svg"],
+	"0124": ["/exercises/0124-relaxation.svg", "/exercises/0124-tension.svg"],
+	"0125": ["/exercises/0125-relaxation.svg", "/exercises/0125-tension.svg"],
+	"0126": ["/exercises/0126-relaxation.svg", "/exercises/0126-tension.svg"],
+	"0127": ["/exercises/0127-relaxation.svg", "/exercises/0127-tension.svg"],
+	"0128": ["/exercises/0128-relaxation.svg", "/exercises/0128-tension.svg"],
+	"0129": ["/exercises/0129-relaxation.svg", "/exercises/0129-tension.svg"],
+	"0130": ["/exercises/0130-relaxation.svg", "/exercises/0130-tension.svg"],
+	"0131": ["/exercises/0131-relaxation.svg", "/exercises/0131-tension.svg"],
+	"0132": ["/exercises/0132-relaxation.svg", "/exercises/0132-tension.svg"],
+	"0133": ["/exercises/0133-relaxation.svg", "/exercises/0133-tension.svg"],
+	"0134": ["/exercises/0134-relaxation.svg", "/exercises/0134-tension.svg"],
+	"0135": ["/exercises/0135-relaxation.svg", "/exercises/0135-tension.svg"],
+	"0136": ["/exercises/0136-relaxation.svg", "/exercises/0136-tension.svg"],
+	"0137": ["/exercises/0137-relaxation.svg", "/exercises/0137-tension.svg"],
+	"0138": ["/exercises/0138-relaxation.svg", "/exercises/0138-tension.svg"],
+	"0139": ["/exercises/0139-relaxation.svg", "/exercises/0139-tension.svg"],
+	"0140": ["/exercises/0140-relaxation.svg", "/exercises/0140-tension.svg"],
+	"0141": ["/exercises/0141-relaxation.svg", "/exercises/0141-tension.svg"],
+	"0142": ["/exercises/0142-relaxation.svg", "/exercises/0142-tension.svg"],
+	"0143": ["/exercises/0143-relaxation.svg", "/exercises/0143-tension.svg"],
+	"0144": ["/exercises/0144-relaxation.svg", "/exercises/0144-tension.svg"],
+	"0145": ["/exercises/0145-relaxation.svg", "/exercises/0145-tension.svg"],
+	"0146": ["/exercises/0146-relaxation.svg", "/exercises/0146-tension.svg"],
+	"0147": ["/exercises/0147-relaxation.svg", "/exercises/0147-tension.svg"],
+	"0148": ["/exercises/0148-relaxation.svg", "/exercises/0148-tension.svg"],
+	"0150": ["/exercises/0150-relaxation.svg", "/exercises/0150-tension.svg"],
+	"0151": ["/exercises/0151-relaxation.svg", "/exercises/0151-tension.svg"],
+	"0152": ["/exercises/0152-relaxation.svg", "/exercises/0152-tension.svg"],
+	"0154": ["/exercises/0154-relaxation.svg", "/exercises/0154-tension.svg"],
+	"0155": ["/exercises/0155-relaxation.svg", "/exercises/0155-tension.svg"],
+	"0156": ["/exercises/0156-relaxation.svg", "/exercises/0156-tension.svg"],
+	"0157": ["/exercises/0157-relaxation.svg", "/exercises/0157-tension.svg"],
+	"0158": ["/exercises/0158-relaxation.svg", "/exercises/0158-tension.svg"],
+	"0160": ["/exercises/0160-relaxation.svg", "/exercises/0160-tension.svg"],
+	"0161": ["/exercises/0161-relaxation.svg", "/exercises/0161-tension.svg"],
+	"0162": ["/exercises/0162-relaxation.svg", "/exercises/0162-tension.svg"],
+	"0163": ["/exercises/0163-relaxation.svg", "/exercises/0163-tension.svg"],
+	"0164": ["/exercises/0164-relaxation.svg", "/exercises/0164-tension.svg"],
+	"0165": ["/exercises/0165-relaxation.svg", "/exercises/0165-tension.svg"],
+	"0166": ["/exercises/0166-relaxation.svg", "/exercises/0166-tension.svg"],
+	"0168": ["/exercises/0168-relaxation.svg", "/exercises/0168-tension.svg"],
+	"0169": ["/exercises/0169-relaxation.svg", "/exercises/0169-tension.svg"],
+	"0170": ["/exercises/0170-relaxation.svg", "/exercises/0170-tension.svg"],
+	"0171": ["/exercises/0171-relaxation.svg", "/exercises/0171-tension.svg"],
+	"0172": ["/exercises/0172-relaxation.svg", "/exercises/0172-tension.svg"],
+	"0173": ["/exercises/0173-relaxation.svg", "/exercises/0173-tension.svg"],
+	"0174": ["/exercises/0174-relaxation.svg", "/exercises/0174-tension.svg"],
+	"0175": ["/exercises/0175-relaxation.svg", "/exercises/0175-tension.svg"],
+	"0176": ["/exercises/0176-relaxation.svg", "/exercises/0176-tension.svg"],
+	"0177": ["/exercises/0177-relaxation.svg", "/exercises/0177-tension.svg"],
+	"0178": ["/exercises/0178-relaxation.svg", "/exercises/0178-tension.svg"],
+	"0179": ["/exercises/0179-relaxation.svg", "/exercises/0179-tension.svg"],
+	"0180": ["/exercises/0180-relaxation.svg", "/exercises/0180-tension.svg"],
+	"0181": ["/exercises/0181-relaxation.svg", "/exercises/0181-tension.svg"],
+	"0182": ["/exercises/0182-relaxation.svg", "/exercises/0182-tension.svg"],
+	"0183": ["/exercises/0183-relaxation.svg", "/exercises/0183-tension.svg"],
+	"0184": ["/exercises/0184-relaxation.svg", "/exercises/0184-tension.svg"],
+	"0185": ["/exercises/0185-relaxation.svg", "/exercises/0185-tension.svg"],
+	"0186": ["/exercises/0186-relaxation.svg", "/exercises/0186-tension.svg"],
+	"0187": ["/exercises/0187-relaxation.svg", "/exercises/0187-tension.svg"],
+	"0188": ["/exercises/0188-relaxation.svg", "/exercises/0188-tension.svg"],
+	"0189": ["/exercises/0189-relaxation.svg", "/exercises/0189-tension.svg"],
+	"0190": ["/exercises/0190-relaxation.svg", "/exercises/0190-tension.svg"],
+	"0191": ["/exercises/0191-relaxation.svg", "/exercises/0191-tension.svg"],
+	"0192": ["/exercises/0192-relaxation.svg", "/exercises/0192-tension.svg"],
+	"0193": ["/exercises/0193-relaxation.svg", "/exercises/0193-tension.svg"],
+	"0194": ["/exercises/0194-relaxation.svg", "/exercises/0194-tension.svg"],
+	"0195": ["/exercises/0195-relaxation.svg", "/exercises/0195-tension.svg"],
+	"0196": ["/exercises/0196-relaxation.svg", "/exercises/0196-tension.svg"],
+	"0197": ["/exercises/0197-relaxation.svg", "/exercises/0197-tension.svg"],
+	"0198": ["/exercises/0198-relaxation.svg", "/exercises/0198-tension.svg"],
+	"0199": ["/exercises/0199-relaxation.svg", "/exercises/0199-tension.svg"],
+	"0201": ["/exercises/0201-relaxation.svg", "/exercises/0201-tension.svg"],
+	"0202": ["/exercises/0202-relaxation.svg", "/exercises/0202-tension.svg"],
+	"0203": ["/exercises/0203-relaxation.svg", "/exercises/0203-tension.svg"],
+	"0204": ["/exercises/0204-relaxation.svg", "/exercises/0204-tension.svg"],
+	"0205": ["/exercises/0205-relaxation.svg", "/exercises/0205-tension.svg"],
+	"0206": ["/exercises/0206-relaxation.svg", "/exercises/0206-tension.svg"],
+	"0207": ["/exercises/0207-relaxation.svg", "/exercises/0207-tension.svg"],
+	"0208": ["/exercises/0208-relaxation.svg", "/exercises/0208-tension.svg"],
+	"0209": ["/exercises/0209-relaxation.svg", "/exercises/0209-tension.svg"],
+	"0210": ["/exercises/0210-relaxation.svg", "/exercises/0210-tension.svg"],
+	"0211": ["/exercises/0211-relaxation.svg", "/exercises/0211-tension.svg"],
+	"0212": ["/exercises/0212-relaxation.svg", "/exercises/0212-tension.svg"],
+	"0213": ["/exercises/0213-relaxation.svg", "/exercises/0213-tension.svg"],
+	"0214": ["/exercises/0214-relaxation.svg", "/exercises/0214-tension.svg"],
+	"0215": ["/exercises/0215-relaxation.svg", "/exercises/0215-tension.svg"],
+	"0216": ["/exercises/0216-relaxation.svg", "/exercises/0216-tension.svg"],
+	"0217": ["/exercises/0217-relaxation.svg", "/exercises/0217-tension.svg"],
+	"0218": ["/exercises/0218-relaxation.svg", "/exercises/0218-tension.svg"],
+	"0219": ["/exercises/0219-relaxation.svg", "/exercises/0219-tension.svg"],
+	"0220": ["/exercises/0220-relaxation.svg", "/exercises/0220-tension.svg"],
+	"0221": ["/exercises/0221-relaxation.svg", "/exercises/0221-tension.svg"],
+	"0222": ["/exercises/0222-relaxation.svg", "/exercises/0222-tension.svg"],
+	"0223": ["/exercises/0223-relaxation.svg", "/exercises/0223-tension.svg"],
+	"0224": ["/exercises/0224-relaxation.svg", "/exercises/0224-tension.svg"],
+	"0225": ["/exercises/0225-relaxation.svg", "/exercises/0225-tension.svg"],
+	"0226": ["/exercises/0226-relaxation.svg", "/exercises/0226-tension.svg"],
+	"0227": ["/exercises/0227-relaxation.svg", "/exercises/0227-tension.svg"],
+	"0228": ["/exercises/0228-relaxation.svg", "/exercises/0228-tension.svg"],
+	"0229": ["/exercises/0229-relaxation.svg", "/exercises/0229-tension.svg"],
+	"0231": ["/exercises/0231-relaxation.svg", "/exercises/0231-tension.svg"],
+	"0232": ["/exercises/0232-relaxation.svg", "/exercises/0232-tension.svg"],
+	"0233": ["/exercises/0233-relaxation.svg", "/exercises/0233-tension.svg"],
+	"0234": ["/exercises/0234-relaxation.svg", "/exercises/0234-tension.svg"],
+	"0235": ["/exercises/0235-relaxation.svg", "/exercises/0235-tension.svg"],
+	"0236": ["/exercises/0236-relaxation.svg", "/exercises/0236-tension.svg"],
+	"0237": ["/exercises/0237-relaxation.svg", "/exercises/0237-tension.svg"],
+	"0238": ["/exercises/0238-relaxation.svg", "/exercises/0238-tension.svg"],
+	"0239": ["/exercises/0239-relaxation.svg", "/exercises/0239-tension.svg"],
+	"0240": ["/exercises/0240-relaxation.svg", "/exercises/0240-tension.svg"],
+	"0241": ["/exercises/0241-relaxation.svg", "/exercises/0241-tension.svg"],
+	"0242": ["/exercises/0242-relaxation.svg", "/exercises/0242-tension.svg"],
+	"0243": ["/exercises/0243-relaxation.svg", "/exercises/0243-tension.svg"],
+	"0244": ["/exercises/0244-tension.svg"],
+	"0245": ["/exercises/0245-relaxation.svg", "/exercises/0245-tension.svg"],
+	"0246": ["/exercises/0246-relaxation.svg", "/exercises/0246-tension.svg"],
+	"0247": ["/exercises/0247-relaxation.svg", "/exercises/0247-tension.svg"],
+	"0248": ["/exercises/0248-relaxation.svg", "/exercises/0248-tension.svg"],
+	"0249": ["/exercises/0249-relaxation.svg", "/exercises/0249-tension.svg"],
+	"0250": ["/exercises/0250-relaxation.svg", "/exercises/0250-tension.svg"],
+	"0251": ["/exercises/0251-relaxation.svg", "/exercises/0251-tension.svg"],
+	"0252": ["/exercises/0252-relaxation.svg", "/exercises/0252-tension.svg"],
+	"0253": ["/exercises/0253-relaxation.svg", "/exercises/0253-tension.svg"],
+	"0254": ["/exercises/0254-relaxation.svg", "/exercises/0254-tension.svg"],
+	"0255": ["/exercises/0255-relaxation.svg", "/exercises/0255-tension.svg"],
+	"0256": ["/exercises/0256-relaxation.svg", "/exercises/0256-tension.svg"],
+	"0257": ["/exercises/0257-relaxation.svg", "/exercises/0257-tension.svg"],
+	"0258": ["/exercises/0258-relaxation.svg", "/exercises/0258-tension.svg"],
+	"0259": ["/exercises/0259-relaxation.svg", "/exercises/0259-tension.svg"],
+	"0260": ["/exercises/0260-relaxation.svg", "/exercises/0260-tension.svg"],
+	"0261": ["/exercises/0261-relaxation.svg", "/exercises/0261-tension.svg"],
+	"0262": ["/exercises/0262-relaxation.svg", "/exercises/0262-tension.svg"],
+	"0263": ["/exercises/0263-relaxation.svg", "/exercises/0263-tension.svg"],
+	"0264": ["/exercises/0264-relaxation.svg", "/exercises/0264-tension.svg"],
+	"0265": ["/exercises/0265-relaxation.svg", "/exercises/0265-tension.svg"],
+	"0266": ["/exercises/0266-relaxation.svg", "/exercises/0266-tension.svg"],
+	"0267": ["/exercises/0267-relaxation.svg", "/exercises/0267-tension.svg"],
+	"0268": ["/exercises/0268-relaxation.svg", "/exercises/0268-tension.svg"],
+	"0269": ["/exercises/0269-relaxation.svg", "/exercises/0269-tension.svg"],
+	"0270": ["/exercises/0270-relaxation.svg", "/exercises/0270-tension.svg"],
+	"0272": ["/exercises/0272-relaxation.svg", "/exercises/0272-tension.svg"],
+	"0273": ["/exercises/0273-relaxation.svg", "/exercises/0273-tension.svg"],
+	"0274": ["/exercises/0274-relaxation.svg", "/exercises/0274-tension.svg"],
+	"0275": ["/exercises/0275-relaxation.svg", "/exercises/0275-tension.svg"],
+	"0276": ["/exercises/0276-relaxation.svg", "/exercises/0276-tension.svg"],
+	"0277": ["/exercises/0277-relaxation.svg", "/exercises/0277-tension.svg"],
+	"0278": ["/exercises/0278-relaxation.svg", "/exercises/0278-tension.svg"],
+	"0279": ["/exercises/0279-relaxation.svg", "/exercises/0279-tension.svg"],
+	"0280": ["/exercises/0280-relaxation.svg", "/exercises/0280-tension.svg"],
+	"0281": ["/exercises/0281-relaxation.svg", "/exercises/0281-tension.svg"],
+	"0282": ["/exercises/0282-relaxation.svg", "/exercises/0282-tension.svg"],
+	"0284": ["/exercises/0284-relaxation.svg", "/exercises/0284-tension.svg"],
+	"0285": ["/exercises/0285-relaxation.svg", "/exercises/0285-tension.svg"],
+	"0286": ["/exercises/0286-relaxation.svg", "/exercises/0286-tension.svg"],
+	"0287": ["/exercises/0287-relaxation.svg", "/exercises/0287-tension.svg"],
+	"0288": ["/exercises/0288-relaxation.svg", "/exercises/0288-tension.svg"],
+	"0289": ["/exercises/0289-relaxation.svg", "/exercises/0289-tension.svg"],
+	"0290": ["/exercises/0290-relaxation.svg", "/exercises/0290-tension.svg"],
+	"0291": ["/exercises/0291-relaxation.svg", "/exercises/0291-tension.svg"],
+	"0292": ["/exercises/0292-relaxation.svg", "/exercises/0292-tension.svg"],
+	"0293": ["/exercises/0293-relaxation.svg", "/exercises/0293-tension.svg"],
+	"0294": ["/exercises/0294-relaxation.svg", "/exercises/0294-tension.svg"],
+	"0295": ["/exercises/0295-relaxation.svg", "/exercises/0295-tension.svg"],
+	"0296": ["/exercises/0296-relaxation.svg", "/exercises/0296-tension.svg"]
 }

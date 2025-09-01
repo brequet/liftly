@@ -12,7 +12,7 @@
 </script>
 
 <nav class="flex justify-around border-b bg-card p-2 pb-1">
-	{#each navLinks as link}
+	{#each navLinks as link (link.href)}
 		{@const isSelected = page.url.pathname === link.href}
 		<a href={link.href} class="flex flex-col items-center gap-1 text-sm">
 			<Button
