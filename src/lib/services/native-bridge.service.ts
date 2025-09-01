@@ -1,4 +1,4 @@
-import { info } from '@tauri-apps/plugin-log';
+import { debug, info } from '@tauri-apps/plugin-log';
 import { drawerService } from './drawer.service.svelte';
 
 class NativeBridgeService {
@@ -19,19 +19,21 @@ class NativeBridgeService {
 		 * @returns {boolean} - `false` to prevent native action, `true` to allow it.
 		 */
 		window.onNativeKeyEvent = (keyName: string): boolean => {
-			info(`[FRONTEND] onNativeKeyEvent received: ${keyName}`);
+			debug(`[NativeBridgeService] onNativeKeyEvent received: ${keyName}`);
 
 			if (keyName === 'back') {
 				const wasDrawerClosed = drawerService.closeTopDrawer();
 
 				if (wasDrawerClosed) {
-					info('[FRONTEND] Back key handled by DrawerService. Preventing native navigation.');
+					debug(
+						'[NativeBridgeService] Back key handled by DrawerService. Preventing native navigation.'
+					);
 					// **Crucially, we return `false` to prevent the default native back navigation.**
 					return false;
 				}
 			}
 
-			info('[FRONTEND] Event not handled by frontend. Allowing native action.');
+			debug('[NativeBridgeService] Event not handled by frontend. Allowing native action.');
 			return true;
 		};
 	}
@@ -41,7 +43,7 @@ class NativeBridgeService {
 	 */
 	cleanup() {
 		if (typeof window !== 'undefined') {
-			info('[FRONTEND] Cleaning up native key event handler.');
+			info('[NativeBridgeService] Cleaning up native key event handler.');
 			delete window.onNativeKeyEvent;
 		}
 	}

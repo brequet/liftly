@@ -13,12 +13,17 @@ pub mod api;
 pub fn run() {
     let builder = api::specta_builder();
     let (db_plugin_url, migrations) = db::connection::get_db_plugin_config();
-    let mut log_builder = tauri_plugin_log::Builder::new();
 
-    log_builder = log_builder.level(log::LevelFilter::Info); // TODO: log level ?
+    let log_level = if cfg!(debug_assertions) {
+        log::LevelFilter::Debug
+    } else {
+        log::LevelFilter::Info
+    };
+
+    let log_plugin = tauri_plugin_log::Builder::new().level(log_level).build();
 
     tauri::Builder::default()
-        .plugin(log_builder.build())
+        .plugin(log_plugin)
         .plugin(
             tauri_plugin_sql::Builder::new()
                 .add_migrations(&db_plugin_url, migrations)
