@@ -6,7 +6,7 @@
 	let { children } = $props();
 </script>
 
-<div class="flex h-full flex-col">
+<div class="flex h-full flex-col pt-2">
 	<main class="flex-1 overflow-y-auto">
 		{@render children?.()}
 	</main>

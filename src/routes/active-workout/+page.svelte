@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { PageWrapper } from '$lib/components/layout';
 	import { Button, buttonVariants } from '$lib/components/ui/button';
 	import * as Drawer from '$lib/components/ui/drawer';
 	import { ExerciseSearch } from '$lib/features/exercise';
@@ -29,7 +28,7 @@
 	</Button>
 </header>
 
-<PageWrapper>
+<div class="flex flex-1 flex-col gap-8 px-2 pt-2">
 	<Drawer.Root>
 		<Drawer.Trigger class={buttonVariants({ variant: 'default' })}>
 			<Dumbbell />
@@ -45,4 +44,4 @@
 	>
 		<p class="text-muted-foreground">Selected exercises will appear here.</p>
 	</div>
-</PageWrapper>
+</div>

@@ -7,3 +7,16 @@ bun.lockb
 
 # Miscellaneous
 /static/
+
+# Ignore Tauri build and generated files
+/src-tauri/gen
+/src-tauri/target
+/src-tauri/Cargo.lock
+
+# Ignore SvelteKit build artifacts
+/.svelte-kit
+/build
+
+# Ignore standard project files
+/node_modules
+/dist

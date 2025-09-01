@@ -1,8 +1,9 @@
-import { commands, type Workout } from '$lib/generated/bindings';
+import { commands, type WorkoutSession } from '$lib/generated/bindings';
+import { loggingService } from '$lib/services';
 import { formatElapsedTime } from '$lib/utils';
 
 class WorkoutService {
-	activeWorkout = $state<Workout | null>(null);
+	activeWorkout = $state<WorkoutSession | null>(null);
 	now = $state(new Date());
 
 	isWorkoutActive = $derived(this.activeWorkout !== null);
@@ -33,56 +34,96 @@ class WorkoutService {
 		});
 	}
 
-	/**
-	 * Fetches the active workout from the backend and updates the state.
-	 */
 	async fetchActiveWorkout() {
 		try {
-			const workout = await commands.getActiveWorkout();
-			this.activeWorkout = workout.status === 'ok' ? workout.data : null;
-			if (workout.status !== 'ok') {
-				console.error('Failed to fetch active workout:', workout.error);
+			const result = await commands.getActiveWorkout();
+			if (result.status === 'ok') {
+				this.activeWorkout = result.data;
+			} else {
+				loggingService.logApiError('Failed to fetch active workout', result.error);
+				this.activeWorkout = null;
 			}
 		} catch (error) {
+			loggingService.logUnexpectedError('Fetching active workout', error);
 			this.activeWorkout = null;
-			console.error('An unexpected error occurred while fetching the active workout:', error);
 		}
 	}
 
-	/**
-	 * Starts a new workout session.
-	 */
 	async startWorkout() {
 		try {
-			const workout = await commands.createWorkout();
-			if (workout.status === 'ok') {
-				this.activeWorkout = workout.data;
+			const result = await commands.createWorkout();
+			if (result.status === 'ok') {
+				this.activeWorkout = result.data;
 			} else {
-				console.error('Failed to start workout:', workout.error);
+				loggingService.logApiError('Failed to start workout', result.error);
 			}
 		} catch (error) {
-			console.error('An unexpected error occurred while starting a workout:', error);
+			loggingService.logUnexpectedError('Starting a workout', error);
 		}
 	}
 
-	/**
-	 * Ends the current workout session.
-	 */
 	async endWorkout() {
 		try {
-			const workout = await commands.endWorkout();
-			if (workout.status === 'ok') {
+			const result = await commands.endWorkout();
+			if (result.status === 'ok') {
 				this.activeWorkout = null;
 			} else {
-				console.error('Failed to end workout:', workout.error.data);
+				loggingService.logApiError('Failed to end workout', result.error);
 			}
 		} catch (error) {
-			console.error('An unexpected error occurred while ending the workout:', error);
+			loggingService.logUnexpectedError('Ending the workout', error);
+		}
+	}
+
+	async addSet(exerciseId: number, reps: number, weight: number) {
+		if (!this.activeWorkout) return;
+
+		try {
+			const result = await commands.addSetToActiveWorkout(exerciseId, reps, weight);
+			if (result.status === 'ok') {
+				const newSet = result.data;
+				this.activeWorkout.sets.push(newSet);
+			} else {
+				loggingService.logApiError('Failed to add set', result.error);
+			}
+		} catch (error) {
+			loggingService.logUnexpectedError('Adding set to workout', error);
+		}
+	}
+
+	async updateSet(setId: number, exerciseId: number, reps: number, weight: number) {
+		if (!this.activeWorkout) return;
+
+		try {
+			const result = await commands.updateSetFromActiveWorkout(setId, exerciseId, reps, weight);
+			if (result.status === 'ok') {
+				const updatedSet = result.data;
+				const index = this.activeWorkout.sets.findIndex((s) => s.id === updatedSet.id);
+				if (index !== -1) {
+					this.activeWorkout.sets[index] = updatedSet;
+				}
+			} else {
+				loggingService.logApiError('Failed to update set', result.error);
+			}
+		} catch (error) {
+			loggingService.logUnexpectedError('Updating set in workout', error);
+		}
+	}
+
+	async removeSet(setId: number) {
+		if (!this.activeWorkout) return;
+
+		try {
+			const result = await commands.removeSetFromActiveWorkout(setId);
+			if (result.status === 'ok') {
+				this.activeWorkout.sets = this.activeWorkout.sets.filter((s) => s.id !== setId);
+			} else {
+				loggingService.logApiError('Failed to remove set', result.error);
+			}
+		} catch (error) {
+			loggingService.logUnexpectedError('Removing set from workout', error);
 		}
 	}
 }
 
-/**
- * A singleton instance of the WorkoutService for use throughout the application.
- */
 export const workoutService = new WorkoutService();

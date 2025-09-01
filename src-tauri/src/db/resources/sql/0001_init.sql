@@ -67,7 +67,7 @@ CREATE TABLE
     IF NOT EXISTS workout_sets (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         workout_id INTEGER NOT NULL,
-        exercise_id TEXT NOT NULL,
+        exercise_id INTEGER NOT NULL,
         reps INTEGER NOT NULL,
         weight REAL NOT NULL,
         created_at TEXT NOT NULL DEFAULT (strftime ('%Y-%m-%d %H:%M:%f', 'now')),

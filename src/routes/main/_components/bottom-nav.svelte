@@ -11,17 +11,15 @@
 	];
 </script>
 
-<nav
-	class="flex justify-around border-t bg-card p-2 pb-[calc(env(safe-area-inset-bottom,0rem)+0.5rem)]"
->
+<nav class="flex justify-around border-b bg-card p-2 pb-1">
 	{#each navLinks as link}
 		{@const isSelected = page.url.pathname === link.href}
-		<a href={link.href} class="flex h-auto flex-col items-center gap-1 p-2 text-sm">
+		<a href={link.href} class="flex flex-col items-center gap-1 text-sm">
 			<Button
 				variant="ghost"
 				size="icon"
 				class={cn(
-					'flex h-auto flex-col gap-1 p-2 text-muted-foreground',
+					'flex flex-col gap-1 p-2 py-6 text-muted-foreground',
 					isSelected && 'font-extrabold text-primary'
 				)}
 			>

@@ -7,6 +7,8 @@ pub enum ApiError {
     Database(String),
     WorkoutAlreadyInProgress,
     NoActiveWorkout,
+    SetNotInWorkout { set_id: i32, workout_id: i32 },
+    WorkoutSetNotFound { set_id: i32 },
     Internal(String),
 }
 
@@ -20,6 +22,12 @@ pub enum DomainError {
 
     #[error("No active workout found.")]
     NoActiveWorkout,
+
+    #[error("Set with id {set_id} does not belong to the active workout {workout_id}.")]
+    SetNotInWorkout { set_id: i32, workout_id: i32 },
+
+    #[error("The specified workout set with id {set_id} was not found.")]
+    WorkoutSetNotFound { set_id: i32 },
 }
 
 impl From<DomainError> for ApiError {
@@ -31,10 +39,13 @@ impl From<DomainError> for ApiError {
             }
             DomainError::WorkoutAlreadyInProgress => ApiError::WorkoutAlreadyInProgress,
             DomainError::NoActiveWorkout => ApiError::NoActiveWorkout,
+            DomainError::SetNotInWorkout { set_id, workout_id } => {
+                ApiError::SetNotInWorkout { set_id, workout_id }
+            }
+            DomainError::WorkoutSetNotFound { set_id } => ApiError::WorkoutSetNotFound { set_id },
         }
     }
 }
 
 pub type ApiResult<T> = std::result::Result<T, ApiError>;
-
 pub type DomainResult<T> = std::result::Result<T, DomainError>;

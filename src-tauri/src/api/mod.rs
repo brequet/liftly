@@ -19,7 +19,10 @@ fn get_all_commands() -> Commands<tauri::Wry> {
         workout: [
             get_active_workout,
             create_workout,
-            end_workout
+            end_workout,
+            add_set_to_active_workout,
+            update_set_from_active_workout,
+            remove_set_from_active_workout
         ]
     )
 }

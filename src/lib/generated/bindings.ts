@@ -13,7 +13,7 @@ async searchExercises(query: string, pagination: PaginationParams) : Promise<Res
     else return { status: "error", error: e  as any };
 }
 },
-async getActiveWorkout() : Promise<Result<Workout | null, ApiError>> {
+async getActiveWorkout() : Promise<Result<WorkoutSession | null, ApiError>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("get_active_workout") };
 } catch (e) {
@@ -21,7 +21,7 @@ async getActiveWorkout() : Promise<Result<Workout | null, ApiError>> {
     else return { status: "error", error: e  as any };
 }
 },
-async createWorkout() : Promise<Result<Workout, ApiError>> {
+async createWorkout() : Promise<Result<WorkoutSession, ApiError>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("create_workout") };
 } catch (e) {
@@ -32,6 +32,30 @@ async createWorkout() : Promise<Result<Workout, ApiError>> {
 async endWorkout() : Promise<Result<Workout, ApiError>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("end_workout") };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async addSetToActiveWorkout(exerciseId: number, reps: number, weight: number) : Promise<Result<WorkoutSet, ApiError>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("add_set_to_active_workout", { exerciseId, reps, weight }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async updateSetFromActiveWorkout(setId: number, exerciseId: number, reps: number, weight: number) : Promise<Result<WorkoutSet, ApiError>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("update_set_from_active_workout", { setId, exerciseId, reps, weight }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async removeSetFromActiveWorkout(setId: number) : Promise<Result<null, ApiError>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("remove_set_from_active_workout", { setId }) };
 } catch (e) {
     if(e instanceof Error) throw e;
     else return { status: "error", error: e  as any };
@@ -49,11 +73,13 @@ async endWorkout() : Promise<Result<Workout, ApiError>> {
 
 /** user-defined types **/
 
-export type ApiError = { type: "Database"; data: string } | { type: "WorkoutAlreadyInProgress" } | { type: "NoActiveWorkout" } | { type: "Internal"; data: string }
+export type ApiError = { type: "Database"; data: string } | { type: "WorkoutAlreadyInProgress" } | { type: "NoActiveWorkout" } | { type: "SetNotInWorkout"; data: { set_id: number; workout_id: number } } | { type: "WorkoutSetNotFound"; data: { set_id: number } } | { type: "Internal"; data: string }
 export type ExerciseLight = { id: number; predefined_id: string | null; title: string }
 export type Paginated<T> = { items: T[]; hasMore: boolean; page: number; pageSize: number }
 export type PaginationParams = { page?: number; pageSize?: number }
 export type Workout = { id: number; start_datetime: string; end_datetime: string; status: string; notes: string | null }
+export type WorkoutSession = ({ id: number; start_datetime: string; end_datetime: string; status: string; notes: string | null }) & { sets: WorkoutSet[] }
+export type WorkoutSet = { id: number; workout_id: number; exercise_id: string; reps: number; weight: number; created_at: string }
 
 /** tauri-specta globals **/
 

@@ -1,0 +1,10 @@
+# Ignore Tauri build and generated files
+/src-tauri/
+
+# Ignore SvelteKit build artifacts
+/.svelte-kit/
+/build/
+
+# Ignore standard project files
+/node_modules/
+/dist/
